@@ -377,7 +377,107 @@ def gerarString(self, votos):
 	url.png('voto.png', scale=1)
 	c = canvas.Canvas('voto.pdf')
 	c.setPageSize((2.8*cm,8.9*cm))
-	c.drawImage('voto.png', 0.2*cm, 3.1*cm, 2.5*cm, 2.5*cm)
+	textobject = c.beginText()
+	textobject.setTextOrigin(0.3*cm, 5*cm)
+	info = stringQRCode[1:].split(';')
+	string = ''
+	textobject.moveCursor(0,-50)
+	c.setFont('Helvetica',5)
+	if info[0] is not '':
+		string += 'Presidente: '
+		if info[0] == '0':
+			string += 'Voto em branco'
+		elif info[0] == '-1':
+			string +='Voto nulo'
+		else:
+			string += 'Numero: ' + info[0]
+		textobject.textOut(string)
+		textobject.moveCursor(0,14)
+	string = ''
+	if info[1] is not '':
+		string += 'Governador: '
+		if info[1] == '0':
+			string += 'Voto em branco'
+		elif info[1] == '-1':
+			string +='Voto nulo'
+		else:
+			string += 'Numero: ' + info[1]
+		textobject.textOut(string)
+		textobject.moveCursor(0,14)
+	string = ''
+	if info[2] is not '':
+		string += 'Senador 1: '
+		if info[2] == '0':
+			string += 'Voto em branco'
+		elif info[2] == '-1':
+			string +='Voto nulo'
+		else:
+			string += 'Numero: ' + info[2]
+		textobject.textOut(string)
+		textobject.moveCursor(0,14)
+	string = ''
+	if info[3] is not '':
+		string += 'Senador 2: '
+		if info[3] == '0':
+			string += 'Voto em branco'
+		elif info[3] == '-1':
+			string +='Voto nulo'
+		else:
+			string += 'Numero: ' + info[3]
+		textobject.textOut(string)
+		textobject.moveCursor(0,14)
+	string = ''
+	if info[4] is not '':
+		string += 'Deputado Federal: '
+		if info[4] == '0':
+			string += 'Voto em branco'
+		elif info[4] == '-1':
+			string +='Voto nulo'
+		elif len(info[4]) == 2:
+			string += 'Legenda' + info[4]
+		else:
+			string += 'Numero: ' + info[4]
+		textobject.textOut(string)
+		textobject.moveCursor(0,14)
+	string = ''
+	if info[5] is not '':
+		string += 'Deputado Estadual: '
+		if info[5] == '0':
+			string += 'Voto em branco'
+		elif info[5] == '-1':
+			string +='Voto nulo'
+		elif len(info[5]) == 2:
+			string += 'Legenda' + info[5]
+		else:
+			string += 'Numero: ' + info[5]
+		textobject.textOut(string)
+		textobject.moveCursor(0,14)
+	string = ''
+	if info[6] is not '':
+		string += 'Prefeito: '
+		if info[6] == '0':
+			string += 'Voto em branco'
+		elif info[6] == '-1':
+			string +='Voto nulo'
+		else:
+			string += 'Numero: ' + info[6]
+		textobject.textOut(string)
+		textobject.moveCursor(0,14)
+	string = ''
+	if info[7] is not '':
+		string += 'Vereador: '
+		if info[7] == '0':
+			string += 'Voto em branco'
+		elif info[7] == '-1':
+			string +='Voto nulo'
+		elif len(info[7]) == 2:
+			string += 'Legenda: ' + info[7]
+		else:
+			string += 'Numero: ' + info[7]
+		textobject.textOut(string)
+		textobject.moveCursor(14,14)
+	c.drawText(textobject)
+	c.drawImage('voto.png', 0.05*cm, 0.05*cm, 2.7*cm, 2.7*cm)
 	os.remove('voto.png')
 	c.showPage()
 	c.save()
