@@ -1,0 +1,10 @@
+teste = []
+teste.append(('teste','teste','teste','teste','teste','teste'))
+teste.append(('teste2','teste2','teste2','teste2','teste2','teste2'))
+
+#teste e perguntas devem ter o mesmo tamanho
+perguntas[:tamanho] = teste
+
+#como modificar o tamanho da BD
+perguntas.resize(20, axis=0)
+len(perguntas)
