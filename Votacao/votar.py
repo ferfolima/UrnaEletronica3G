@@ -552,5 +552,8 @@ class ControlMainWindow(QMainWindow):
 		self.show()
 		self.raise_()
 
-	def getCargos(self):
-		return self.ui.cargos
+	def getCargosVotados(self):
+	 	return self.ui.cargos
+
+	def getQtdeCargosVotados(self):
+		return len(self.ui.cargos)

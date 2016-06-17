@@ -166,6 +166,8 @@ def main():
 def decodificarString(encrypted):
 	string = generateKey.decrypt(encrypted, open('./privatekey.pem','rb'))
 	#pres, gov, sen1, sen2, depf, depe, pref, ver
+	database.getCargos()
+	
 	info = string[1:].split(';')
 	string = ''
 	if info[0] is not '':
@@ -240,4 +242,5 @@ def decodificarString(encrypted):
 			string += 'Numero: ' + info[7] + '\n\n'
 	return string
 if __name__ == "__main__":
+	database = h5pyDB.Database()
 	main()
