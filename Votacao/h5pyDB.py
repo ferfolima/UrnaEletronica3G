@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import h5py
 from sets import Set
 

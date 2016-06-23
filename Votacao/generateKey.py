@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Crypto.PublicKey import RSA
 from Crypto import Random
 from Crypto.Cipher import PKCS1_OAEP

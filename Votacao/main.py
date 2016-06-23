@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from PySide.QtGui import *
 from PySide.QtCore import *
 from reportlab.pdfgen import canvas
@@ -20,7 +21,7 @@ class ControlMainWindow(QMainWindow):
 	def __init__(self, parent=None):
 		super(ControlMainWindow, self).__init__(parent)
 
-		#thread criada para aguardar 5 segundos antes de reiniciar o programa após um eleitor votar
+		#thread criada para aguardar 5 segundos antes de reiniciar o programa apos um eleitor votar
 		self.thread = MyThread()
 		self.thread.finished.connect(self.fechar)
 
@@ -97,7 +98,7 @@ class Ui_MainWindow(object):
 		self.lstCargos.setCurrentRow(0)
 
 		#label que ira mostrar mensagem "imprimindo voto"
-		#ele fica invisivel no inicio e só aparece quando a listview é esvaziada
+		#ele fica invisivel no inicio e so aparece quando a listview e esvaziada
 		#ou seja, quando o eleitor ja votou para todos os cargos possiveis
 		self.lblImprimir = QLineEdit(self.centralwidget)
 		self.lblImprimir.setGeometry(QRect(50, 50, self.screenWidth - 100, self.screenHeight - 100))
@@ -106,7 +107,7 @@ class Ui_MainWindow(object):
 		self.lblImprimir.setObjectName("lblImprimir")
 		self.lblImprimir.setVisible(False)
 
-		# Variável onde será inicializada a classe de votação
+		# Variavel onde sera inicializada a classe de votacao
 		self.votarWindow = None
 
 		MainWindow.setCentralWidget(self.centralwidget)
@@ -280,7 +281,7 @@ def gerarString(self, votos):
 
 def main():
 	if not os.path.isfile('./publickey.pem'):
-		print('votacao não pode ser iniciada')
+		print('votacao nao pode ser iniciada')
 		print('chave publica faltando')
 		sys.exit()
 

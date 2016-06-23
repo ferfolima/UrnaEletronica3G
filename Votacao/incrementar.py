@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import cm
 import os
