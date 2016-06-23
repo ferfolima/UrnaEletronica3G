@@ -1,33 +1,12 @@
- #-*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'main.ui'
-#
-# Created: Tue Nov 18 15:42:23 2014
-#	  by: Fernando Teodoro de Lima
-#
-# WARNING! All changes made in this file will be lost!
-
 from PySide.QtGui import *
 from PySide.QtCore import *
-from reportlab.pdfgen import canvas
-from reportlab.lib.units import inch, cm
 from time import sleep
-import h5py
 import sys
-import random
 import os
-import pyqrcode
-import incrementar
 import zbar
 import gtk
+import incrementar
 import generateKey
-
-h5pyFile = h5py.File('Urna.h5', 'r')
-candidatos = h5pyFile['Urna/Candidatos']
-perguntas = h5pyFile['Urna/Perguntas']
-setupGeral = h5pyFile['Urna/SetupGeral']
-tipoDeCandidato = h5pyFile['Urna/TipoDeCandidato']
-tipoEleicao = setupGeral[0][8]
 
 class mainWidget(QWidget):
 	def __init__(self, ui, parent = None):
@@ -36,7 +15,7 @@ class mainWidget(QWidget):
 
 	def keyPressEvent(self, event):
 		if event.text() == '.':
-			self.ui.button2Clicked()
+			self.ui.btnLerCodigoClicked()
 		elif event.text() == '\n':
 			print('deu certo')
 
@@ -54,7 +33,6 @@ class Ui_MainWindow(object):
 		MainWindow.showFullScreen()
 
 		self.centralwidget = mainWidget(self, MainWindow)
-
 		self.centralwidget.setObjectName("centralwidget")
 
 		font = QFont()
@@ -62,66 +40,64 @@ class Ui_MainWindow(object):
 		font.setPointSize(32)
 		font.setItalic(False)
 
-		self.table1 = QTableWidget(self.centralwidget)
-		self.table1.setGeometry(QRect(50, 50, self.screenWidth - 100, 500))
-		self.table1.setObjectName('label')
-		self.table1.setRowCount(1000000)
-		self.table1.setColumnCount(3)
-		self.table1.setColumnWidth(0,(self.screenWidth - 185)/3)
-		self.table1.setColumnWidth(1,(self.screenWidth - 185)/3)
-		self.table1.setColumnWidth(2,(self.screenWidth - 185)/3)
-		self.table1.setEnabled(False);
+		self.tblVotos = QTableWidget(self.centralwidget)
+		self.tblVotos.setGeometry(QRect(50, 50, self.screenWidth - 100, 500))
+		self.tblVotos.setObjectName('tblVotos')
+		self.tblVotos.setRowCount(1000000)
+		self.tblVotos.setColumnCount(3)
+		self.tblVotos.setColumnWidth(0,(self.screenWidth - 185)/3)
+		self.tblVotos.setColumnWidth(1,(self.screenWidth - 185)/3)
+		self.tblVotos.setColumnWidth(2,(self.screenWidth - 185)/3)
+		self.tblVotos.setEnabled(False);
 		horHeader = []
 		horHeader.append('Cargo')
 		horHeader.append('Voto')
 		horHeader.append('# Votos')
-		self.table1.setHorizontalHeaderLabels(horHeader)
+		self.tblVotos.setHorizontalHeaderLabels(horHeader)
 
-		self.pushButton1 = QPushButton(self.centralwidget)
-		self.pushButton1.setGeometry(QRect(self.screenWidth/2 + 200, self.screenHeight - 100, 200, 50))
-		self.pushButton1.setObjectName("pushButton1")
-		#chamar funcao ao clicar no botao 1
-		self.pushButton1.clicked.connect(self.buttonClicked)
-		self.pushButton1.setStyleSheet('QPushButton{\
-					border: 2px solid #2d2dff;\
-					border-radius: 6px;\
-					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
-					min-width: 80px;}')
+		self.btnGerarChaves = QPushButton(self.centralwidget)
+		self.btnGerarChaves.setGeometry(QRect(self.screenWidth/2 - 450, self.screenHeight - 100, 200, 50))
+		self.btnGerarChaves.setObjectName("btnGerarChaves")
+        #chamar funcao ao clicar no botao 1
+		self.btnGerarChaves.clicked.connect(self.btnGerarChavesClicked)
+		#self.btnLerCodigo.setStyle('cleanlooks')
+		self.btnGerarChaves.setStyleSheet('QPushButton{\
+                    border: 2px solid #ee7543;\
+                    border-radius: 6px;\
+                    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
+                    min-width: 80px;}')
 
-		self.pushButton2 = QPushButton(self.centralwidget)
-		self.pushButton2.setGeometry(QRect(self.screenWidth/2 - 125, self.screenHeight - 100, 200, 50))
-		self.pushButton2.setObjectName("pushButton2")
-		#chamar funcao ao clicar no botao 1
-		self.pushButton2.clicked.connect(self.button2Clicked)
-		#self.pushButton2.setStyle('cleanlooks')
-		self.pushButton2.setStyleSheet('QPushButton{\
+		self.btnLerCodigo = QPushButton(self.centralwidget)
+		self.btnLerCodigo.setGeometry(QRect(self.screenWidth/2 - 125, self.screenHeight - 100, 200, 50))
+		self.btnLerCodigo.setObjectName("btnLerCodigo")
+		self.btnLerCodigo.clicked.connect(self.btnLerCodigoClicked)
+		self.btnLerCodigo.setStyleSheet('QPushButton{\
 					border: 2px solid #ee7543;\
 					border-radius: 6px;\
 					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
 					min-width: 80px;}')
 
-		self.pushButton3 = QPushButton(self.centralwidget)
-		self.pushButton3.setGeometry(QRect(self.screenWidth/2 - 450, self.screenHeight - 100, 200, 50))
-		self.pushButton3.setObjectName("pushButton3")
-        #chamar funcao ao clicar no botao 1
-		self.pushButton3.clicked.connect(self.button3Clicked)
-		#self.pushButton2.setStyle('cleanlooks')
-		self.pushButton3.setStyleSheet('QPushButton{\
-                    border: 2px solid #ee7543;\
-                    border-radius: 6px;\
-                    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
-                    min-width: 80px;}')
+		self.btnGerarBoletim = QPushButton(self.centralwidget)
+		self.btnGerarBoletim.setGeometry(QRect(self.screenWidth/2 + 200, self.screenHeight - 100, 200, 50))
+		self.btnGerarBoletim.setObjectName("btnGerarBoletim")
+		self.btnGerarBoletim.clicked.connect(self.btnGerarBoletimClicked)
+		self.btnGerarBoletim.setStyleSheet('QPushButton{\
+					border: 2px solid #2d2dff;\
+					border-radius: 6px;\
+					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
+					min-width: 80px;}')
+
 		if (os.path.isfile('./privatekey.pem') and os.path.isfile('./publickey.pem')):
 			#print('se do dois arquivos existem, o botao deve ser inativado')
-			self.pushButton3.setEnabled(False)
+			self.btnGerarChaves.setEnabled(False)
 
-		self.label = QLineEdit(self.centralwidget)
-		self.label.setGeometry(QRect(50, 50, self.screenWidth - 100, self.screenHeight - 100))
-		self.label.setFont(font)
-		self.label.setAlignment(Qt.AlignCenter)
-		self.label.setObjectName("label")
-		self.label.setEnabled(False)
-		self.label.setVisible(False)
+		self.lblMensagem = QLineEdit(self.centralwidget)
+		self.lblMensagem.setGeometry(QRect(50, 50, self.screenWidth - 100, self.screenHeight - 100))
+		self.lblMensagem.setFont(font)
+		self.lblMensagem.setAlignment(Qt.AlignCenter)
+		self.lblMensagem.setObjectName("lblMensagem")
+		self.lblMensagem.setEnabled(False)
+		self.lblMensagem.setVisible(False)
 
 		MainWindow.setCentralWidget(self.centralwidget)
 
@@ -130,16 +106,15 @@ class Ui_MainWindow(object):
 
 	def retranslateUi(self, MainWindow):
 		MainWindow.setWindowTitle(QApplication.translate("MainWindow", "MainWindow", None, QApplication.UnicodeUTF8))
-		self.pushButton1.setText(QApplication.translate("MainWindow", "GERAR BOLETIM", None, QApplication.UnicodeUTF8))
-		self.pushButton2.setText(QApplication.translate("MainWindow", "LER CODIGO", None, QApplication.UnicodeUTF8))
-		self.pushButton3.setText(QApplication.translate("MainWindow", "GERAR CHAVES", None, QApplication.UnicodeUTF8))
+		self.btnGerarBoletim.setText(QApplication.translate("MainWindow", "GERAR BOLETIM", None, QApplication.UnicodeUTF8))
+		self.btnLerCodigo.setText(QApplication.translate("MainWindow", "LER CODIGO", None, QApplication.UnicodeUTF8))
+		self.btnGerarChaves.setText(QApplication.translate("MainWindow", "GERAR CHAVES", None, QApplication.UnicodeUTF8))
 
-	#funcao que chama a tela para digitar os numeros ao selecionar um cargo para votar
-	def buttonClicked(self):
+	def btnGerarBoletimClicked(self):
 		self.apurarWindow.gerarBoletim()
 		sys.exit()
 
-	def button2Clicked(self):
+	def btnLerCodigoClicked(self):
 		# create a Processor
 		proc = zbar.Processor()
 
@@ -158,8 +133,8 @@ class Ui_MainWindow(object):
 				try:
 					self.apurarWindow.incrementar(generateKey.decrypt(symbol.data, open('./privatekey.pem','rb')))
 				except ValueError:
-					self.label.setVisible(True)
-					self.label.setText(U'Voto inválido. Não pertence a esta seção.')
+					self.lblMensagem.setVisible(True)
+					self.lblMensagem.setText(U'Voto inválido. Não pertence a esta seção.')
 					self.thread.start()
 
 
@@ -180,19 +155,19 @@ class Ui_MainWindow(object):
 		i = 0
 		for key in votos:
 			for k in votos[key]:
-				self.table1.setItem(i,0,QTableWidgetItem(key))
+				self.tblVotos.setItem(i,0,QTableWidgetItem(key))
 				if k == "-1":
-					self.table1.setItem(i,1,QTableWidgetItem('Nulo'))
+					self.tblVotos.setItem(i,1,QTableWidgetItem('Nulo'))
 				elif k == "0":
-					self.table1.setItem(i,1,QTableWidgetItem('Branco'))
+					self.tblVotos.setItem(i,1,QTableWidgetItem('Branco'))
 				else:
-					self.table1.setItem(i,1,QTableWidgetItem(k))
-				self.table1.setItem(i,2,QTableWidgetItem(str(votos[key][k])))
+					self.tblVotos.setItem(i,1,QTableWidgetItem(k))
+				self.tblVotos.setItem(i,2,QTableWidgetItem(str(votos[key][k])))
 				i = i + 1
-		# self.table1.resizeColumnsToContents()
-		# self.table1.resizeRowsToContents()
+		# self.tblVotos.resizeColumnsToContents()
+		# self.tblVotos.resizeRowsToContents()
 
-	def button3Clicked(self):
+	def btnGerarChavesClicked(self):
 		generateKey.generate_RSA()
 		sys.exit()
 
@@ -219,7 +194,7 @@ class ControlMainWindow(QMainWindow):
 		self.ui.setupUi(self)
 
 	def fechar(self):
-		self.ui.label.setVisible(False)
+		self.ui.lblMensagem.setVisible(False)
 		self.thread.exiting=False
 		self.thread.index=0
 
@@ -230,24 +205,5 @@ def main():
 	mySW.raise_()
 	sys.exit(app.exec_())
 
-def decodificarString(string):
-	informacoes1 = string.split("|")[0]
-	informacoes2 = informacoes1.split(",")
-	informacoes = []
-	for informacao in informacoes2: informacoes.append(informacao.split("."))
-
-	votos1 = string.split("|")[1]
-	votos2 = votos1.split(";")
-	votos3 = []
-	for cargo in votos2: votos3.append(cargo.split(":"))
-	votos4 = []
-	for voto in votos3: votos4.append([voto[0], voto[1].split(",")])
-	votos = []
-	for voto in votos4:
-		test = []
-		for voto2 in voto[1]:
-			test.append(voto2.split("."))
-		votos.append((voto[0], test))
-	return votos
 if __name__ == "__main__":
 	main()

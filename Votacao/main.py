@@ -1,28 +1,18 @@
- #-*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'main.ui'
-#
-# Created: Tue Nov 18 15:42:23 2014
-#	  by: Fernando Teodoro de Lima
-
 from PySide.QtGui import *
 from PySide.QtCore import *
 from reportlab.pdfgen import canvas
-from reportlab.lib.units import inch, cm
+from reportlab.lib.units import cm
 from time import sleep
 import sys
 import random
 import os
 import pyqrcode
-import votar
-import zbar
 import gtk
-from time import gmtime, strftime
-from PIL import Image
 import subprocess
-import generateKey
 import pyaudio
 import wave
+import votar
+import generateKey
 import h5pyDB
 
 
@@ -253,7 +243,7 @@ def gerarString(self, votos):
 	textobject.moveCursor(0,-50)
 
 	stringQRCode = '#'
-	for cargo in database.getCargos():
+	for cargo in database.getCargosEleicao():
 		for voto in votos:
 			string = ''
 			if cargo == str(voto[0]):
