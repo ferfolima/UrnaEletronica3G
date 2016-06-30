@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
 					if self.ui.thread.isRunning():
 						self.ui.thread.exiting = True
 					else:
-						self.ui.lblImprimir.setText('Imprimindo voto')
+						self.ui.lblImprimir.setText("Imprimindo voto")
 						self.ui.thread.start()
 						gerarString(self, self.ui.votarWindow.getCargosVotados())
 
@@ -68,21 +68,20 @@ class Ui_MainWindow(object):
 
 		self.lblTitulo = QLabel(self.centralwidget)
 		self.lblTitulo.setGeometry(QRect(50, 50, self.screenWidth - 100, 50))
-		self.lblTitulo.setObjectName('lblTitulo')
-		self.lblTitulo.setText('Selecione um cargo para votar')
+		self.lblTitulo.setObjectName("lblTitulo")
+		self.lblTitulo.setText("Selecione um cargo para votar")
 		self.lblTitulo.setFont(font)
 		self.lblTitulo.setAlignment(Qt.AlignCenter)
 
 		self.btnVotar = QPushButton(self.centralwidget)
 		self.btnVotar.setGeometry(QRect(self.screenWidth/2 - 100, self.screenHeight - 100, 200, 50))
 		self.btnVotar.setObjectName("btnVotar")
-		#chamar funcao ao clicar no botao 1
 		self.btnVotar.clicked.connect(self.btnVotarClicked)
-		self.btnVotar.setStyleSheet('QPushButton{\
+		self.btnVotar.setStyleSheet("QPushButton{\
 					border: 2px solid #2d2dff;\
 					border-radius: 6px;\
 					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
-					min-width: 80px;}')
+					min-width: 80px;}")
 
 		self.lstCargos = QListWidget(self.centralwidget)
 		self.lstCargos.setGeometry(QRect(100, self.lblTitulo.pos().y() + self.lblTitulo.height() + 50, self.screenWidth - 200, self.screenHeight - self.lblTitulo.height() - self.btnVotar.height() - 200))
@@ -123,13 +122,13 @@ class Ui_MainWindow(object):
 	#funcao que chama a tela para digitar os numeros ao selecionar um cargo para votar
 	def btnVotarClicked(self):
 		if self.lstCargos.currentItem() is None:
-			 print('Nenhum candidato selecionado')
+			 print("Nenhum candidato selecionado")
 		else:
 			votarCargo = self.lstCargos.currentItem()
 			self.votarWindow = votar.ControlMainWindow(votarCargo.text())
 			self.lstCargos.takeItem(self.lstCargos.row(votarCargo))
 			if self.lstCargos.count() == 0:
-				self.lblImprimir.setText('Imprimindo Voto')
+				self.lblImprimir.setText("Imprimindo Voto")
 				self.lblImprimir.setEnabled(False)
 				self.lblImprimir.setVisible(True)
 				self.btnVotar.setVisible(False)
@@ -147,41 +146,41 @@ class mainWidget(QWidget):
 					if self.ui.thread.isRunning():
 						self.ui.thread.exiting = True
 					else:
-						self.ui.lblImprimir.setText('Imprimindo voto')
+						self.ui.lblImprimir.setText("Imprimindo voto")
 						self.ui.thread.start()
 						gerarString(self, self.ui.votarWindow.getCargosVotados())
 		return False
 
 		def keyPressEvent(self, event):
-			if event.text() == 'v':
+			if event.text() == "v":
 				self.ui.btnVotarClicked()
-			elif event.text() == 'a':
+			elif event.text() == "a":
 				self.ui.btnVotarClicked()
-			elif event.text() == '1':
+			elif event.text() == "1":
 				self.ui.lstCargos.setCurrentRow(0)
 				self.ui.btnVotarClicked()
-			elif event.text() == '2':
+			elif event.text() == "2":
 				self.ui.lstCargos.setCurrentRow(1)
 				self.ui.btnVotarClicked()
-			elif event.text() == '3':
+			elif event.text() == "3":
 				self.ui.lstCargos.setCurrentRow(2)
-		 		self.ui.btnVotarClicked()
-			elif event.text() == '4':
+				self.ui.btnVotarClicked()
+			elif event.text() == "4":
 				self.ui.lstCargos.setCurrentRow(3)
 				self.ui.btnVotarClicked()
-			elif event.text() == '5':
+			elif event.text() == "5":
 				self.ui.lstCargos.setCurrentRow(4)
 				self.ui.btnVotarClicked()
-			elif event.text() == '6':
+			elif event.text() == "6":
 				self.ui.lstCargos.setCurrentRow(5)
 				self.ui.btnVotarClicked()
-			elif event.text() == '7':
+			elif event.text() == "7":
 				self.ui.lstCargos.setCurrentRow(6)
 				self.ui.btnVotarClicked()
-			elif event.text() == '8':
+			elif event.text() == "8":
 				self.ui.lstCargos.setCurrentRow(7)
 				self.ui.btnVotarClicked()
-			elif event.text() == '9':
+			elif event.text() == "9":
 				self.ui.lstCargos.setCurrentRow(8)
 				self.ui.btnVotarClicked()
 
@@ -222,7 +221,7 @@ def som(self, tipo):
 	data = f.readframes(chunk)
 
 	#play stream
-	while data != '':
+	while data != "":
 		stream.write(data)
 		data = f.readframes(chunk)
 
@@ -235,54 +234,54 @@ def som(self, tipo):
 
 #funcao para gerar string para imprimir QRCode
 def gerarString(self, votos):
-	c = canvas.Canvas('voto.pdf')
-	c.setPageSize((2.8*cm,8.9*cm))
-	c.setFont('Helvetica',5)
+	c = canvas.Canvas("voto.pdf")
+	c.setPageSize((6.2*cm,10*cm))
+	c.setFont("Helvetica",10)
 
 	textobject = c.beginText()
-	textobject.setTextOrigin(0.3*cm, 5*cm)
+	textobject.setTextOrigin(0.3*cm, 6.2*cm)
 	textobject.moveCursor(0,-50)
 
-	stringQRCode = '#'
+	stringQRCode = "#"
 	for cargo in database.getCargosEleicao():
 		for voto in votos:
-			string = ''
+			string = ""
 			if cargo == str(voto[0]):
-				string += cargo + ': '
-				if str(voto[1]) == '1':
-					string += 'Voto em branco'
-					stringQRCode += '0'
-				elif str(voto[2]) == '1':
-					string += 'Voto Nulo'
-					stringQRCode += '-1'
+				string += cargo + ": "
+				if str(voto[1]) == "1":
+					string += "Voto em branco"
+					stringQRCode += "0"
+				elif str(voto[2]) == "1":
+					string += "Voto Nulo"
+					stringQRCode += "-1"
 				else:
 					string += str(voto[4])
 					stringQRCode += str(voto[4])
 				textobject.textOut(string)
 				textobject.moveCursor(0,14)
 				votos.remove(voto)
-		stringQRCode += ';'
+		stringQRCode += ";"
 
 	rng = random.SystemRandom()
 	id_voto = rng.randint(0, 1000000000)
 	stringQRCode += str(id_voto)
 
-	encryptedMessage = generateKey.encrypt(stringQRCode, open('./publickey.pem','rb'))
-	url = pyqrcode.create(encryptedMessage, error="L", encoding='utf-8')
-	url.png('voto.png', scale=1)
+	encryptedMessage = generateKey.encrypt(stringQRCode, open("./publickey.pem","rb"))
+	url = pyqrcode.create(encryptedMessage, error="L", encoding="utf-8")
+	url.png("voto.png", scale=1)
 
 	c.drawText(textobject)
-	c.drawImage('voto.png', 0.05*cm, 0.05*cm, 2.7*cm, 2.7*cm)
-	os.remove('voto.png')
+	c.drawImage("voto.png", 0.05*cm, 0.05*cm, 6.1*cm, 6.1*cm)
+	os.remove("voto.png")
 	c.showPage()
 	c.save()
-	#subprocess.call(['lp','voto.pdf'])
-	#os.remove('voto.pdf')
+	# subprocess.call(["lp","voto.pdf"])
+	# os.remove("voto.pdf")
 
 def main():
-	if not os.path.isfile('./publickey.pem'):
-		print('votacao nao pode ser iniciada')
-		print('chave publica faltando')
+	if not os.path.isfile("./publickey.pem"):
+		print("votacao nao pode ser iniciada")
+		print("chave publica faltando")
 		sys.exit()
 
 	app = QApplication(sys.argv)

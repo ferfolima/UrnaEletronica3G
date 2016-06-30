@@ -137,13 +137,6 @@ class ControlMainWindow(QMainWindow):
 		self.thread.exiting=False
 		self.thread.index=0
 
-def main():
-	app = QApplication(sys.argv)
-	mySW = ControlMainWindow()
-	mySW.show()
-	mySW.raise_()
-	sys.exit(app.exec_())
-
 def decodificarString(encrypted):
 	string = generateKey.decrypt(encrypted, open('./privatekey.pem','rb'))
 
@@ -155,6 +148,14 @@ def decodificarString(encrypted):
 		stringVotos += infoVotos[indiceCargo] + "\n\n"
 
 	return stringVotos
+
+def main():
+	app = QApplication(sys.argv)
+	mySW = ControlMainWindow()
+	mySW.show()
+	mySW.raise_()
+	sys.exit(app.exec_())
+
 if __name__ == "__main__":
 	database = h5pyDB.Database()
 	main()
