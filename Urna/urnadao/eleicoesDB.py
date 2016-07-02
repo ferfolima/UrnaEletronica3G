@@ -43,9 +43,17 @@ class DAO(Singleton):
     def _commit(self):
         self.connection.commit()
 
+    def criarTabelas(self):
+        cursor = self._get_cursor()
+        cursor.execute("create table if not exists partidos(numero_partido int not null, nome_partido varchar(255) not null, sigla_partido varchar(255) not null, presidente_partido varchar(255) not null, foto_partido mediumblob, unique(numero_partido), primary key (numero_partido));")
+        cursor.execute("create table if not exists cargos(id int not null auto_increment, nome_cargo varchar(255) not null, primary key(id));")
+        cursor.execute("create table if not exists candidatos(id_cargo int not null, id_partido int not null, numero_candidato int not null, nome_candidato varchar(255) not null, titulo_candidato varchar(255) not null, id int not null auto_increment, foto_candidato mediumblob, unique(titulo_candidato), primary key(id), foreign key(id_cargo) references cargos(id), foreign key(id_partido) references partidos(numero_partido));")
+        cursor.close()
+
+
     def inserirPartido(self, numeroPartido, nomePartido, siglaPartido, presidentePartido, img):
         cursor = self._get_cursor()
-        cursor.execute("INSERT INTO partidos VALUES (%s, %s, %s, %s, %s)", (numeroPartido, nomePartido, siglaPartido, presidentePartido, img))
+        cursor.execute("INSERT INTO partidos(numero_partido, nome_partido, sigla_partido, presidente_partido, foto_partido) VALUES (%s, %s, %s, %s, %s)", (numeroPartido, nomePartido, siglaPartido, presidentePartido, img))
         self._commit()
         cursor.close()
 

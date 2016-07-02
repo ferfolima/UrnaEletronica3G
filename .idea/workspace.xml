@@ -2,74 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b89a3d89-b4ae-402b-91f7-c4874cd22f26" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Urna/cadastro/cadastroCandidato.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Urna/cadastro/cadastroCargo.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Urna/cadastro/cadastroPartido.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Urna/urnadao/h5pyDB.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/DeputadoFederal/2222.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/DeputadoFederal/addImageDB.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Governador/13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Governador/21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Governador/29.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Governador/31.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Governador/40.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Governador/43.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Governador/45.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Governador/50.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Governador/addImageDB.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/20.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/27.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/28.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/29.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/40.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/43.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/44.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/45.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Candidatos/Presidente/50.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/17.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/19.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/20.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/25.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/27.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/28.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/29.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/31.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/33.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/36.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/40.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/43.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/44.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/45.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/50.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/54.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/55.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/65.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/70.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/77.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/addImageDB.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/Partidos/readImageDB.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createTable/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/Urna.h5" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Urna/apuracao/main.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Urna/gerenciar/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/apuracao/generateKey.py" afterPath="$PROJECT_DIR$/Urna/gerenciar/generateKey.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/apuracao/gerenciar.py" afterPath="$PROJECT_DIR$/Urna/gerenciar/gerenciar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Urna/apuracao/apurar.py" afterPath="$PROJECT_DIR$/Urna/apuracao/apurar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py" afterPath="$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Urna/verificacao/verificar.py" afterPath="$PROJECT_DIR$/Urna/verificacao/verificar.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Urna/votacao/main.py" afterPath="$PROJECT_DIR$/Urna/votacao/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Urna/votacao/votar.py" afterPath="$PROJECT_DIR$/Urna/votacao/votar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bibliotecas.sh" afterPath="$PROJECT_DIR$/bibliotecas.sh" />
     </list>
     <ignored path="TG.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,7 +26,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/TG$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1467415381895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/votacao" />
-    <SUITE FILE_PATH="coverage/TG$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1467415570990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/votacao" />
+    <SUITE FILE_PATH="coverage/TG$main__2_.coverage" NAME="main (2) Coverage Results" MODIFIED="1467441602079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/apuracao" />
     <SUITE FILE_PATH="coverage/TG$votar.coverage" NAME="votar Coverage Results" MODIFIED="1467415373538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/votacao" />
     <SUITE FILE_PATH="coverage/TG$locais.coverage" NAME="locais Coverage Results" MODIFIED="1467328225446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Banco_de_dados/Candidatos" />
     <SUITE FILE_PATH="coverage/TG$h5pyDB.coverage" NAME="h5pyDB Coverage Results" MODIFIED="1467413025676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/urnadao" />
@@ -93,12 +35,14 @@
     <SUITE FILE_PATH="coverage/TG$eleicoesDB.coverage" NAME="eleicoesDB Coverage Results" MODIFIED="1467434292563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/urnadao" />
     <SUITE FILE_PATH="coverage/TG$gerenciar__1_.coverage" NAME="gerenciar (1) Coverage Results" MODIFIED="1467415179567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/votacao" />
     <SUITE FILE_PATH="coverage/TG$partidos1.coverage" NAME="partidos1 Coverage Results" MODIFIED="1467328478641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Banco_de_dados/Partidos" />
-    <SUITE FILE_PATH="coverage/TG$main.coverage" NAME="main Coverage Results" MODIFIED="1467439199700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/votacao" />
-    <SUITE FILE_PATH="coverage/TG$cadastroCandidato.coverage" NAME="cadastroCandidato Coverage Results" MODIFIED="1467439127386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/cadastro" />
+    <SUITE FILE_PATH="coverage/TG$main.coverage" NAME="main Coverage Results" MODIFIED="1467444667821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/votacao" />
+    <SUITE FILE_PATH="coverage/TG$cadastroCandidato.coverage" NAME="cadastroCandidato Coverage Results" MODIFIED="1467444436124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/cadastro" />
+    <SUITE FILE_PATH="coverage/TG$apurar.coverage" NAME="apurar Coverage Results" MODIFIED="1467441541118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/apuracao" />
     <SUITE FILE_PATH="coverage/TG$verificar__1_.coverage" NAME="verificar (1) Coverage Results" MODIFIED="1467415724442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/verificacao" />
-    <SUITE FILE_PATH="coverage/TG$cadastroPartido.coverage" NAME="cadastroPartido Coverage Results" MODIFIED="1467435562140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/cadastro" />
+    <SUITE FILE_PATH="coverage/TG$cadastroCargo.coverage" NAME="cadastroCargo Coverage Results" MODIFIED="1467444426153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/cadastro" />
+    <SUITE FILE_PATH="coverage/TG$cadastroPartido.coverage" NAME="cadastroPartido Coverage Results" MODIFIED="1467444382539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/cadastro" />
     <SUITE FILE_PATH="coverage/TG$mainwindow.coverage" NAME="mainwindow Coverage Results" MODIFIED="1467328287626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Banco_de_dados/Main_Window" />
-    <SUITE FILE_PATH="coverage/TG$gerenciar.coverage" NAME="gerenciar Coverage Results" MODIFIED="1467415672847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/apuracao" />
+    <SUITE FILE_PATH="coverage/TG$gerenciar.coverage" NAME="gerenciar Coverage Results" MODIFIED="1467444308817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Urna/apuracao" />
     <SUITE FILE_PATH="coverage/TG$Nosetest_TestDatabase_test_getCandidatoNumeroPartido.coverage" NAME="Nosetest TestDatabase.test_getCandidatoNumeroPartido Coverage Results" MODIFIED="1467253425922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Votacao" />
     <SUITE FILE_PATH="coverage/TG$verificar.coverage" NAME="verificar Coverage Results" MODIFIED="1467414766583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/verificacao" />
   </component>
@@ -121,9 +65,56 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Urna/votacao/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2040">
-              <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+            <state relative-caret-position="125">
+              <caret line="95" column="39" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="39" />
+              <folding>
+                <element signature="e#24#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cadastroCandidato.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/cadastro/cadastroCandidato.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eleicoesDB.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="55" column="122" selection-start-line="55" selection-start-column="122" selection-end-line="55" selection-end-column="122" />
+              <folding>
+                <marker date="1467444377667" expanded="true" signature="1208:1244" ph="create table... if" />
+                <marker date="1467444377667" expanded="true" signature="1208:1464" ph="create table... if" />
+                <marker date="1467444377667" expanded="true" signature="1208:1466" ph="create table... if" />
+                <marker date="1467444377667" expanded="true" signature="1494:1610" ph="create table... if" />
+                <marker date="1467444377667" expanded="true" signature="1638:2040" ph="create table... candidatos" />
+                <marker date="1467444377667" expanded="true" signature="2225:2245" ph="INSERT INTO partidos... " />
+                <marker date="1467444377667" expanded="true" signature="2225:2331" ph="INSERT INTO PARTIDOS... " />
+                <marker date="1467444377667" expanded="true" signature="2225:2332" ph="INSERT INTO PARTIDOS... " />
+                <marker date="1467444377667" expanded="true" signature="2225:2352" ph="INSERT INTO PARTIDOS... " />
+                <marker date="1467444377667" expanded="true" signature="2555:2589" ph="SELECT * FRO... partidos" />
+                <marker date="1467444377667" expanded="true" signature="2766:2826" ph="SELECT id FR... cargos" />
+                <marker date="1467444377667" expanded="true" signature="3015:3055" ph="INSERT INTO cargos... " />
+                <marker date="1467444377667" expanded="true" signature="3015:3057" ph="INSERT INTO cargos... " />
+                <marker date="1467444377667" expanded="true" signature="3015:3058" ph="INSERT INTO cargos... " />
+                <marker date="1467444377667" expanded="true" signature="3206:3229" ph="SELECT * FRO... partidos" />
+                <marker date="1467444377667" expanded="true" signature="3206:3235" ph="SELECT * FRO... cargos" />
+                <marker date="1467444377667" expanded="true" signature="3408:3429" ph="SELECT * FRO... cargos" />
+                <marker date="1467444377667" expanded="true" signature="3408:3451" ph="SELECT id FR... cargos" />
+                <marker date="1467444377667" expanded="true" signature="3628:3656" ph="SELECT id FR... cargos" />
+                <marker date="1467444377667" expanded="true" signature="3628:3658" ph="SELECT COUNT... cargos" />
+                <marker date="1467444377667" expanded="true" signature="3913:4084" ph="INSERT INTO candidatos... " />
+                <marker date="1467444377667" expanded="true" signature="4417:4831" ph="SELECT A.nom... candidatos" />
+                <marker date="1467444377667" expanded="true" signature="5113:5146" ph="SELECT COUNT... partidos" />
+                <marker date="1467444377667" expanded="true" signature="5113:5174" ph="SELECT foto_... partidos" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,7 +140,6 @@
         <option value="$PROJECT_DIR$/Votacao/incrementar.py" />
         <option value="$PROJECT_DIR$/Votacao/votar.py" />
         <option value="$PROJECT_DIR$/Votacao/main.py" />
-        <option value="$PROJECT_DIR$/bibliotecas.sh" />
         <option value="$PROJECT_DIR$/Votacao/gerenciar.py" />
         <option value="$PROJECT_DIR$/urnadao/h5pyDB.py" />
         <option value="$PROJECT_DIR$/verificacao/verificar.py" />
@@ -158,15 +148,18 @@
         <option value="$PROJECT_DIR$/apuracao/incrementar.py" />
         <option value="$PROJECT_DIR$/votacao/main.py" />
         <option value="$PROJECT_DIR$/Urna/apuracao/generateKey.py" />
-        <option value="$PROJECT_DIR$/Urna/apuracao/gerenciar.py" />
         <option value="$PROJECT_DIR$/Urna/urnadao/h5pyDB.py" />
         <option value="$PROJECT_DIR$/Urna/cadastro/cadastroPartido.py" />
         <option value="$PROJECT_DIR$/Urna/cadastro/cadastroCargos.py" />
-        <option value="$PROJECT_DIR$/Urna/apuracao/apurar.py" />
         <option value="$PROJECT_DIR$/Urna/verificacao/verificar.py" />
         <option value="$PROJECT_DIR$/Urna/votacao/votar.py" />
-        <option value="$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py" />
         <option value="$PROJECT_DIR$/Urna/cadastro/cadastroCandidato.py" />
+        <option value="$PROJECT_DIR$/Urna/apuracao/gerenciar.py" />
+        <option value="$PROJECT_DIR$/Urna/gerenciar/gerenciar.py" />
+        <option value="$PROJECT_DIR$/Urna/apuracao/main.py" />
+        <option value="$PROJECT_DIR$/Urna/apuracao/apurar.py" />
+        <option value="$PROJECT_DIR$/bibliotecas.sh" />
+        <option value="$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py" />
         <option value="$PROJECT_DIR$/Urna/votacao/main.py" />
       </list>
     </option>
@@ -209,6 +202,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -224,6 +218,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="TG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="files" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,27 +267,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Urna" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="urnadao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -288,18 +277,73 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Urna/cadastro" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Urna/gerenciar" />
+      <recent name="$PROJECT_DIR$/Urna/apuracao" />
       <recent name="$PROJECT_DIR$/Urna" />
       <recent name="$PROJECT_DIR$/files" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/votacao" />
-      <recent name="$PROJECT_DIR$/media" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Urna/gerenciar" />
+      <recent name="$PROJECT_DIR$/Urna/cadastro" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Urna/votacao" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="TG" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Urna/votacao/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="gerenciar" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Urna/apuracao" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="TG" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Urna/gerenciar/gerenciar.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="cadastroCargo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Urna/cadastro" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="TG" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Urna/cadastro/cadastroCargo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
     <configuration default="false" name="cadastroPartido" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -318,42 +362,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="eleicoesDB" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Urna/urnadao" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="TG" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="cadastroCargos" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Urna/cadastro" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="TG" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Urna/cadastro/cadastroCargo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="cadastroCandidato" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -368,24 +376,6 @@
       <module name="TG" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Urna/cadastro/cadastroCandidato.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Urna/votacao" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="TG" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Urna/votacao/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -618,19 +608,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.main (1)" />
-      <item index="1" class="java.lang.String" itemvalue="Python.cadastroPartido" />
-      <item index="2" class="java.lang.String" itemvalue="Python.eleicoesDB" />
-      <item index="3" class="java.lang.String" itemvalue="Python.cadastroCargos" />
-      <item index="4" class="java.lang.String" itemvalue="Python.cadastroCandidato" />
-      <item index="5" class="java.lang.String" itemvalue="Python.main" />
+      <item index="1" class="java.lang.String" itemvalue="Python.main" />
+      <item index="2" class="java.lang.String" itemvalue="Python.gerenciar" />
+      <item index="3" class="java.lang.String" itemvalue="Python.cadastroCargo" />
+      <item index="4" class="java.lang.String" itemvalue="Python.cadastroPartido" />
+      <item index="5" class="java.lang.String" itemvalue="Python.cadastroCandidato" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.main" />
         <item index="1" class="java.lang.String" itemvalue="Python.cadastroCandidato" />
-        <item index="2" class="java.lang.String" itemvalue="Python.cadastroCargos" />
+        <item index="2" class="java.lang.String" itemvalue="Python.cadastroCargo" />
         <item index="3" class="java.lang.String" itemvalue="Python.cadastroPartido" />
-        <item index="4" class="java.lang.String" itemvalue="Python.eleicoesDB" />
+        <item index="4" class="java.lang.String" itemvalue="Python.gerenciar" />
       </list>
     </recent_temporary>
   </component>
@@ -690,10 +680,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15126051" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1609538" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30253354" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980901" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -703,28 +692,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39344263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21161191" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15126051" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980901" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39940387" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -754,6 +724,16 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Urna/votacao/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bibliotecas.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -765,7 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -818,20 +797,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/votacao/test_database.py" />
-    <entry file="file://$PROJECT_DIR$/createTable/Partidos/readImageDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createTable/Partidos/addImageDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-623">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/createTable/Partidos/readImageDB.py" />
+    <entry file="file://$PROJECT_DIR$/createTable/Partidos/addImageDB.py" />
     <entry file="file://$PROJECT_DIR$/Banco_de_dados/Candidatos/locais.py" />
     <entry file="file://$PROJECT_DIR$/Banco_de_dados/Candidatos/candidatos.py" />
     <entry file="file://$PROJECT_DIR$/Banco_de_dados/Main_Window/mainwindow.py" />
@@ -849,22 +816,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createTable/Partidos/10.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/createTable/Partidos/10.jpg" />
     <entry file="file://$PROJECT_DIR$/Urna/votacao/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bibliotecas.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="5" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -873,73 +829,113 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/apuracao/generateKey.py">
+    <entry file="file://$PROJECT_DIR$/Urna/gerenciar/generateKey.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createTable/Candidatos/DeputadoFederal/addImageDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/createTable/Candidatos/DeputadoFederal/addImageDB.py" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fc50e240-9f01-498f-842e-587a7c7d0557/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/urnadao/h5pyDB.py">
+    <entry file="file://$PROJECT_DIR$/Urna/urnadao/h5pyDB.py" />
+    <entry file="file://$PROJECT_DIR$/Urna/verificacao/verificar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="425">
+          <caret line="168" column="12" selection-start-line="168" selection-start-column="4" selection-end-line="168" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/votacao/votar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="284" column="48" selection-start-line="283" selection-start-column="16" selection-end-line="284" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/apuracao/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#34#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Urna/apuracao/apurar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="35" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24#58#0" expanded="true" />
+            <element signature="e#24#58#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/apuracao/gerenciar.py">
+    <entry file="file://$PROJECT_DIR$/bibliotecas.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="3">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/verificacao/verificar.py">
+    <entry file="file://$PROJECT_DIR$/Urna/gerenciar/gerenciar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="168" column="12" selection-start-line="168" selection-start-column="4" selection-end-line="168" selection-end-column="12" />
+        <state relative-caret-position="600">
+          <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
           <folding>
             <element signature="e#24#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="55" column="122" selection-start-line="55" selection-start-column="122" selection-end-line="55" selection-end-column="122" />
+          <folding>
+            <marker date="1467444377667" expanded="true" signature="1208:1244" ph="create table... if" />
+            <marker date="1467444377667" expanded="true" signature="1208:1464" ph="create table... if" />
+            <marker date="1467444377667" expanded="true" signature="1208:1466" ph="create table... if" />
+            <marker date="1467444377667" expanded="true" signature="1494:1610" ph="create table... if" />
+            <marker date="1467444377667" expanded="true" signature="1638:2040" ph="create table... candidatos" />
+            <marker date="1467444377667" expanded="true" signature="2225:2245" ph="INSERT INTO partidos... " />
+            <marker date="1467444377667" expanded="true" signature="2225:2331" ph="INSERT INTO PARTIDOS... " />
+            <marker date="1467444377667" expanded="true" signature="2225:2332" ph="INSERT INTO PARTIDOS... " />
+            <marker date="1467444377667" expanded="true" signature="2225:2352" ph="INSERT INTO PARTIDOS... " />
+            <marker date="1467444377667" expanded="true" signature="2555:2589" ph="SELECT * FRO... partidos" />
+            <marker date="1467444377667" expanded="true" signature="2766:2826" ph="SELECT id FR... cargos" />
+            <marker date="1467444377667" expanded="true" signature="3015:3055" ph="INSERT INTO cargos... " />
+            <marker date="1467444377667" expanded="true" signature="3015:3057" ph="INSERT INTO cargos... " />
+            <marker date="1467444377667" expanded="true" signature="3015:3058" ph="INSERT INTO cargos... " />
+            <marker date="1467444377667" expanded="true" signature="3206:3229" ph="SELECT * FRO... partidos" />
+            <marker date="1467444377667" expanded="true" signature="3206:3235" ph="SELECT * FRO... cargos" />
+            <marker date="1467444377667" expanded="true" signature="3408:3429" ph="SELECT * FRO... cargos" />
+            <marker date="1467444377667" expanded="true" signature="3408:3451" ph="SELECT id FR... cargos" />
+            <marker date="1467444377667" expanded="true" signature="3628:3656" ph="SELECT id FR... cargos" />
+            <marker date="1467444377667" expanded="true" signature="3628:3658" ph="SELECT COUNT... cargos" />
+            <marker date="1467444377667" expanded="true" signature="3913:4084" ph="INSERT INTO candidatos... " />
+            <marker date="1467444377667" expanded="true" signature="4417:4831" ph="SELECT A.nom... candidatos" />
+            <marker date="1467444377667" expanded="true" signature="5113:5146" ph="SELECT COUNT... partidos" />
+            <marker date="1467444377667" expanded="true" signature="5113:5174" ph="SELECT foto_... partidos" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Urna/cadastro/cadastroPartido.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="-165">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
           <folding />
         </state>
@@ -953,59 +949,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/votacao/votar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="284" column="48" selection-start-line="283" selection-start-column="16" selection-end-line="284" selection-end-column="48" />
-          <folding>
-            <element signature="e#24#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Urna/cadastro/cadastroCandidato.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="109" column="23" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="23" />
-          <folding>
-            <element signature="e#24#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="116" column="99" selection-start-line="116" selection-start-column="99" selection-end-line="116" selection-end-column="99" />
-          <folding>
-            <marker date="1467438872491" expanded="true" signature="1276:1296" ph="INSERT INTO partidos... " />
-            <marker date="1467438872491" expanded="true" signature="1276:1303" ph="INSERT INTO PARTIDOS... " />
-            <marker date="1467438872491" expanded="true" signature="1276:1304" ph="INSERT INTO PARTIDOS... " />
-            <marker date="1467438872491" expanded="true" signature="1276:1324" ph="INSERT INTO PARTIDOS... " />
-            <marker date="1467438872491" expanded="true" signature="1527:1561" ph="SELECT * FRO... partidos" />
-            <marker date="1467438872491" expanded="true" signature="1738:1798" ph="SELECT id FR... cargos" />
-            <marker date="1467438872491" expanded="true" signature="1987:2027" ph="INSERT INTO cargos... " />
-            <marker date="1467438872491" expanded="true" signature="1987:2029" ph="INSERT INTO cargos... " />
-            <marker date="1467438872491" expanded="true" signature="1987:2030" ph="INSERT INTO cargos... " />
-            <marker date="1467438872491" expanded="true" signature="2178:2201" ph="SELECT * FRO... partidos" />
-            <marker date="1467438872491" expanded="true" signature="2178:2207" ph="SELECT * FRO... cargos" />
-            <marker date="1467438872491" expanded="true" signature="2380:2401" ph="SELECT * FRO... cargos" />
-            <marker date="1467438872491" expanded="true" signature="2380:2423" ph="SELECT id FR... cargos" />
-            <marker date="1467438872491" expanded="true" signature="2600:2628" ph="SELECT id FR... cargos" />
-            <marker date="1467438872491" expanded="true" signature="2600:2630" ph="SELECT COUNT... cargos" />
-            <marker date="1467438872491" expanded="true" signature="2885:3056" ph="INSERT INTO candidatos... " />
-            <marker date="1467438872491" expanded="true" signature="3389:3803" ph="SELECT A.nom... candidatos" />
-            <marker date="1467438872491" expanded="true" signature="4085:4118" ph="SELECT COUNT... partidos" />
-            <marker date="1467438872491" expanded="true" signature="4085:4146" ph="SELECT foto_... partidos" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Urna/votacao/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2040">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="125">
+          <caret line="95" column="39" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="39" />
+          <folding>
+            <element signature="e#24#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

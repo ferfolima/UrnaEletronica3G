@@ -7,7 +7,7 @@ from time import sleep
 from PySide.QtCore import *
 from PySide.QtGui import *
 
-from Urna.apuracao import generateKey
+from Urna.gerenciar import generateKey
 from Urna.urnadao import eleicoesDB
 
 PRIVATE_KEY = "../../files/privatekey.pem"

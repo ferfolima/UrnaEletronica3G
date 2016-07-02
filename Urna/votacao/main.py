@@ -14,7 +14,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 
 import votar
-from Urna.apuracao import generateKey
+from Urna.gerenciar import generateKey
 from Urna.urnadao import eleicoesDB
 
 PUBLIC_KEY = "../../files/publickey.pem"
@@ -247,7 +247,8 @@ def gerarString(self, votos):
 	textobject.moveCursor(0,-50)
 
 	stringQRCode = "#"
-	for cargo in database.getCargos():
+	cargos = [x[0] for x in database.getCargos()]
+	for cargo in cargos:
 		for voto in votos:
 			string = ""
 			if cargo == str(voto[0]):

@@ -8,10 +8,9 @@ from time import sleep
 from PySide.QtCore import *
 from PySide.QtGui import *
 
-import apurar
-import generateKey
+from Urna.gerenciar import generateKey
+import Urna.apuracao.apurar
 
-PUBLIC_KEY = "../../files/publickey.pem"
 PRIVATE_KEY = "../../files/privatekey.pem"
 class mainWidget(QWidget):
 	def __init__(self, ui, parent = None):
@@ -31,7 +30,7 @@ class Ui_MainWindow(object):
 	def setupUi(self, MainWindow):
 		MainWindow.setObjectName("MainWindow")
 		MainWindow.setWindowIcon(QIcon('../../files/icon.png'))
-		self.apurarWindow = apurar.incrementar()
+		self.apurarWindow = Urna.apuracao.apurar.incrementar()
 
 		self.screenWidth = gtk.gdk.screen_width()
 		self.screenHeight = gtk.gdk.screen_height()
@@ -61,20 +60,8 @@ class Ui_MainWindow(object):
 		horHeader.append('# Votos')
 		self.tblVotos.setHorizontalHeaderLabels(horHeader)
 
-		self.btnGerarChaves = QPushButton(self.centralwidget)
-		self.btnGerarChaves.setGeometry(QRect(self.screenWidth/2 - 450, self.screenHeight - 100, 200, 50))
-		self.btnGerarChaves.setObjectName("btnGerarChaves")
-        #chamar funcao ao clicar no botao 1
-		self.btnGerarChaves.clicked.connect(self.btnGerarChavesClicked)
-		#self.btnLerCodigo.setStyle('cleanlooks')
-		self.btnGerarChaves.setStyleSheet('QPushButton{\
-                    border: 2px solid #ee7543;\
-                    border-radius: 6px;\
-                    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
-                    min-width: 80px;}')
-
 		self.btnLerCodigo = QPushButton(self.centralwidget)
-		self.btnLerCodigo.setGeometry(QRect(self.screenWidth/2 - 125, self.screenHeight - 100, 200, 50))
+		self.btnLerCodigo.setGeometry(QRect(self.screenWidth/2 - 300, self.screenHeight - 100, 200, 50))
 		self.btnLerCodigo.setObjectName("btnLerCodigo")
 		self.btnLerCodigo.clicked.connect(self.btnLerCodigoClicked)
 		self.btnLerCodigo.setStyleSheet('QPushButton{\
@@ -84,7 +71,7 @@ class Ui_MainWindow(object):
 					min-width: 80px;}')
 
 		self.btnGerarBoletim = QPushButton(self.centralwidget)
-		self.btnGerarBoletim.setGeometry(QRect(self.screenWidth/2 + 200, self.screenHeight - 100, 200, 50))
+		self.btnGerarBoletim.setGeometry(QRect(self.screenWidth/2 + 150, self.screenHeight - 100, 200, 50))
 		self.btnGerarBoletim.setObjectName("btnGerarBoletim")
 		self.btnGerarBoletim.clicked.connect(self.btnGerarBoletimClicked)
 		self.btnGerarBoletim.setStyleSheet('QPushButton{\
@@ -92,10 +79,6 @@ class Ui_MainWindow(object):
 					border-radius: 6px;\
 					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
 					min-width: 80px;}')
-
-		if (os.path.isfile(PUBLIC_KEY) and os.path.isfile(PRIVATE_KEY)):
-			#print('se do dois arquivos existem, o botao deve ser inativado')
-			self.btnGerarChaves.setEnabled(False)
 
 		self.lblMensagem = QLineEdit(self.centralwidget)
 		self.lblMensagem.setGeometry(QRect(50, 50, self.screenWidth - 100, self.screenHeight - 100))
@@ -114,7 +97,6 @@ class Ui_MainWindow(object):
 		MainWindow.setWindowTitle(QApplication.translate("MainWindow", "MainWindow", None, QApplication.UnicodeUTF8))
 		self.btnGerarBoletim.setText(QApplication.translate("MainWindow", "GERAR BOLETIM", None, QApplication.UnicodeUTF8))
 		self.btnLerCodigo.setText(QApplication.translate("MainWindow", "LER CODIGO", None, QApplication.UnicodeUTF8))
-		self.btnGerarChaves.setText(QApplication.translate("MainWindow", "GERAR CHAVES", None, QApplication.UnicodeUTF8))
 
 	def btnGerarBoletimClicked(self):
 		self.apurarWindow.gerarBoletim()
@@ -172,11 +154,6 @@ class Ui_MainWindow(object):
 				i = i + 1
 		# self.tblVotos.resizeColumnsToContents()
 		# self.tblVotos.resizeRowsToContents()
-
-	def btnGerarChavesClicked(self):
-		generateKey.generate_RSA()
-		sys.exit()
-
 
 class MyThread(QThread):
 	def __init__(self, parent = None):
