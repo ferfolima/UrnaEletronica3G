@@ -15,7 +15,7 @@ from PySide.QtGui import *
 
 import votar
 from Urna.apuracao import generateKey
-from Urna.urnadao import h5pyDB
+from Urna.urnadao import eleicoesDB
 
 PUBLIC_KEY = "../../files/publickey.pem"
 
@@ -34,8 +34,8 @@ class ControlMainWindow(QMainWindow):
 		sys.exit()
 
 		# Reexecutar o programa ao sair?
-		# python = sys.executable
-		# os.execl(python, python, * sys.argv)
+		python = sys.executable
+		os.execl(python, python, * sys.argv)
 
 class Ui_MainWindow(object):
 	def __init__(self, thread):
@@ -93,8 +93,9 @@ class Ui_MainWindow(object):
 		self.lstCargos.setWordWrap(True)
 
 		#preencher lstCargos com cargos para eleicao
-		for cargo in database.getCargosEleicao():
-			item = QListWidgetItem(cargo)
+		for cargo in database.getCargos():
+			item = QListWidgetItem(cargo[0])
+
 			#item.setTextAlignment(Qt.AlignHCenter)
 			self.lstCargos.addItem(item)
 		self.lstCargos.setCurrentRow(0)
@@ -246,7 +247,7 @@ def gerarString(self, votos):
 	textobject.moveCursor(0,-50)
 
 	stringQRCode = "#"
-	for cargo in database.getCargosEleicao():
+	for cargo in database.getCargos():
 		for voto in votos:
 			string = ""
 			if cargo == str(voto[0]):
@@ -294,5 +295,5 @@ def main():
 	sys.exit(app.exec_())
 
 if __name__ == "__main__":
-	database = h5pyDB.Database()
+	database = eleicoesDB.DAO()
 	main()

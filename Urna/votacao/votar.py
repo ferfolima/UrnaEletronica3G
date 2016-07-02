@@ -6,9 +6,9 @@ from scipy import misc
 from PySide.QtCore import *
 from PySide.QtGui import *
 
-from Urna.urnadao import h5pyDB
+from Urna.urnadao import eleicoesDB
 
-database = h5pyDB.Database()
+database = eleicoesDB.DAO()
 
 class mainWidget(QWidget):
     def __init__(self, ui, parent=None):
@@ -278,15 +278,16 @@ class Ui_MainWindow(object):
         self.preencherTela()
 
     def preencherTela(self):
-        nome, partido, numero, foto = database.getCandidatoNumeroPartido(self.numerosDigitados, self.cargo)
-        if nome is not None and partido is not None and numero is not None and foto is not None:
-            self.nulo = False
-            self.lblNomeCandidato.setText(nome)
-            self.lblNomePartido.setText(partido)
-            self.lblNumeroLegenda.setText(numero)
-            misc.imsave("foto.png", foto)
-            self.lblFoto.setPixmap(QPixmap("foto.png"))
-            os.remove("foto.png")
+        if len(self.numerosDigitados) > 0:
+            nome, numero, partido, foto = database.getCandidatoNumeroPartido(self.numerosDigitados, self.cargo)
+            if nome is not None and partido is not None and numero is not None and foto is not None:
+                qimg = QImage.fromData(foto)
+                pixmap = QPixmap.fromImage(qimg)
+                self.lblFoto.setPixmap(pixmap)
+                self.nulo = False
+                self.lblNomeCandidato.setText(nome)
+                self.lblNomePartido.setText(partido)
+                self.lblNumeroLegenda.setText(str(numero))
 
     # limpar as informacoes da tela toda vez que ela é iniciada e quando botao corrige é clicado
     def limparTela(self):

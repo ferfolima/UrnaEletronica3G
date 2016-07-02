@@ -2,13 +2,13 @@
 from reportlab.lib.units import cm
 from reportlab.pdfgen import canvas
 
-from Urna.urnadao import h5pyDB
+from Urna.urnadao import eleicoesDB
 
 
 class incrementar():
 	def __init__(self):
-		database = h5pyDB.Database()
-		self.cargos = database.getCargosEleicao()
+		database = eleicoesDB.DAO()
+		self.cargos = database.getCargos()
 		self.lstVotoId = {}
 		self.lista_cargos_votos = {}
 		for cargo in self.cargos:

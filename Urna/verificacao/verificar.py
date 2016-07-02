@@ -8,7 +8,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 
 from Urna.apuracao import generateKey
-from Urna.urnadao import h5pyDB
+from Urna.urnadao import eleicoesDB
 
 PRIVATE_KEY = "../../files/privatekey.pem"
 class mainWidget(QWidget):
@@ -144,7 +144,7 @@ class ControlMainWindow(QMainWindow):
 def decodificarString(encrypted):
 	string = generateKey.decrypt(encrypted, open(PRIVATE_KEY, 'rb'))
 
-	lstCargos = database.getCargosEleicao()
+	lstCargos = database.getCargos()
 	infoVotos = string[1:].split(';')
 	stringVotos = ''
 	for indiceCargo in range(len(lstCargos)):
@@ -166,5 +166,5 @@ def main():
 	sys.exit(app.exec_())
 
 if __name__ == "__main__":
-	database = h5pyDB.Database()
+	database = eleicoesDB.DAO()
 	main()
