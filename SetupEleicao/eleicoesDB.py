@@ -57,6 +57,7 @@ class DAO(Singleton):
         cursor.execute("create table if not exists cargos("
                        "id int not null auto_increment, "
                        "nome_cargo varchar(255) not null, "
+                       "qtde_votos int not null, "
                        "primary key(id));")
 
         cursor.execute("create table if not exists candidatos("
@@ -74,9 +75,9 @@ class DAO(Singleton):
 
         cursor.close()
 
-    def inserirCargo(self, nomeCargo):
+    def inserirCargo(self, nomeCargo, qtdeVotos):
         cursor = self._get_cursor()
-        cursor.execute("INSERT INTO cargos (nome_cargo) VALUES (%s)", (nomeCargo))
+        cursor.execute("INSERT INTO cargos (nome_cargo, qtde_votos) VALUES (%s, %s)", (nomeCargo, qtdeVotos))
         self._commit()
         cursor.close()
 

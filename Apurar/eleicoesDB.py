@@ -47,3 +47,11 @@ class DAO(Singleton):
         cursor.close()
         rows = [x[0] for x in rows]
         return rows
+
+    def getCargosQtde(self):
+        cursor = self._get_cursor()
+        cursor.execute("SELECT nome_cargo, qtde_votos FROM cargos")
+        rows = cursor.fetchall()
+        cursor.close()
+        rows = [y[0] for y in rows for x in range(int(y[1]))]
+        return rows

@@ -8,6 +8,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 
 import eleicoesDB
+import pynotify
 
 script_dir = os.path.dirname(__file__)
 ICON = os.path.join(script_dir, "../files/icon.png")
@@ -28,7 +29,7 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.showFullScreen()
+        MainWindow.showMaximized()
         MainWindow.setWindowIcon(QIcon(ICON))
 
         self.screenWidth = gtk.gdk.screen_width()
@@ -58,7 +59,7 @@ class Ui_MainWindow(object):
         # self.lblNomePartido.setAlignment(Qt.AlignCenter)
 
         self.txtNomePartido = QLineEdit(self.centralwidget)
-        self.txtNomePartido.setGeometry(QRect(50, self.lblNomePartido.pos().y() + 40, self.screenWidth - 100, 40))
+        self.txtNomePartido.setGeometry(QRect(50, self.lblNomePartido.pos().y() + 40, self.screenWidth - 200, 40))
         # self.txtNomePartido.setFont(font)
         self.txtNomePartido.setObjectName("txtNomePartido")
 
@@ -70,7 +71,7 @@ class Ui_MainWindow(object):
         # self.lblNomePartido.setAlignment(Qt.AlignCenter)
 
         self.txtSiglaPartido = QLineEdit(self.centralwidget)
-        self.txtSiglaPartido.setGeometry(QRect(50, self.lblSiglaPartido.pos().y() + 40, self.screenWidth - 100, 40))
+        self.txtSiglaPartido.setGeometry(QRect(50, self.lblSiglaPartido.pos().y() + 40, self.screenWidth - 200, 40))
         # self.txtNomePartido.setFont(font)
         self.txtSiglaPartido.setObjectName("txtSiglaPartido")
 
@@ -82,7 +83,7 @@ class Ui_MainWindow(object):
         # self.lblNomePartido.setAlignment(Qt.AlignCenter)
 
         self.txtNumeroPartido = QLineEdit(self.centralwidget)
-        self.txtNumeroPartido.setGeometry(QRect(50, self.lblNumeroPartido.pos().y() + 40, self.screenWidth - 100, 40))
+        self.txtNumeroPartido.setGeometry(QRect(50, self.lblNumeroPartido.pos().y() + 40, self.screenWidth - 200, 40))
         # self.txtNomePartido.setFont(font)
         self.txtNumeroPartido.setObjectName("txtNumeroPartido")
 
@@ -94,13 +95,13 @@ class Ui_MainWindow(object):
         # self.lblNomePartido.setAlignment(Qt.AlignCenter)
 
         self.txtPresidentePartido = QLineEdit(self.centralwidget)
-        self.txtPresidentePartido.setGeometry(QRect(50, self.lblPresidentePartido.pos().y() + 40, self.screenWidth - 100, 40))
+        self.txtPresidentePartido.setGeometry(QRect(50, self.lblPresidentePartido.pos().y() + 40, self.screenWidth - 200, 40))
         # self.txtNomePartido.setFont(font)
         self.txtPresidentePartido.setObjectName("txtPresidentePartido")
 
         # nesse elemento será carregada a foto do candidato/simbolo do partido
         self.lblFoto = QLabel(self.centralwidget)
-        self.lblFoto.setGeometry(QRect(50, self.txtPresidentePartido.pos().y() + 50, 100, 100))
+        self.lblFoto.setGeometry(QRect(50, self.txtPresidentePartido.pos().y() + 100, 100, 100))
         self.lblFoto.setObjectName("lblFoto")
         self.lblFoto.setVisible(True)
         self.lblFoto.setScaledContents(True)
@@ -112,7 +113,7 @@ class Ui_MainWindow(object):
         self.lblFotoName = QLabel(self.centralwidget)
         self.lblFotoName.setGeometry(QRect(50, self.lblFoto.pos().y() + 100, self.screenWidth - 100, 100))
         self.lblFotoName.setObjectName("lblFotoName")
-        self.lblFotoName.setVisible(True)
+        self.lblFotoName.setVisible(False)
         self.lblFotoName.setScaledContents(True)
         self.lblFotoName.setWordWrap(False)
         self.lblFotoName.setText(ICON)
@@ -148,6 +149,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QApplication.translate("MainWindow", "Urna Eletronica", None, QApplication.UnicodeUTF8))
         self.btnCadastrar.setText(QApplication.translate("MainWindow", "CADASTRAR", None, QApplication.UnicodeUTF8))
         self.btnFoto.setText(QApplication.translate("MainWindow", "INSERIR FOTO", None, QApplication.UnicodeUTF8))
+        self.txtNomePartido.setFocus()
 
     def btnFotoClicked(self):
         fname = QFileDialog.getOpenFileName()
@@ -157,16 +159,38 @@ class Ui_MainWindow(object):
 
     # funcao que chama a tela para digitar os numeros ao selecionar um cargo para votar
     def btnCadastrarClicked(self):
-        fin = open(self.lblFotoName.text())
-        img = fin.read()
-        database.inserirPartido(self.txtNumeroPartido.text(), self.txtNomePartido.text(), self.txtSiglaPartido.text(), self.txtPresidentePartido.text(), img)
-        pixmap = QPixmap(ICON)
-        self.lblFoto.setPixmap(pixmap)
-        self.lblFotoName.setText(ICON)
-        self.txtNumeroPartido.setText("")
-        self.txtNomePartido.setText("")
-        self.txtSiglaPartido.setText("")
-        self.txtPresidentePartido.setText("")
+        if self.txtNomePartido.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de inserir o nome')
+            notificacao.show()
+        elif self.txtSiglaPartido.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de inserir a sigla')
+            notificacao.show()
+        elif self.txtNumeroPartido.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de inserir o número')
+            notificacao.show()
+        elif self.txtPresidentePartido.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de inserir o presidente')
+            notificacao.show()
+        elif self.lblFotoName.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de selecionar uma foto')
+            notificacao.show()
+        else:
+            fin = open(self.lblFotoName.text())
+            img = fin.read()
+            database.inserirPartido(self.txtNumeroPartido.text(), self.txtNomePartido.text(), self.txtSiglaPartido.text(), self.txtPresidentePartido.text(), img)
+            pixmap = QPixmap(ICON)
+            self.lblFoto.setPixmap(pixmap)
+            self.lblFotoName.setText(ICON)
+            self.txtNumeroPartido.setText("")
+            self.txtNomePartido.setText("")
+            self.txtSiglaPartido.setText("")
+            self.txtPresidentePartido.setText("")
+            self.txtNomePartido.setFocus()
 
 
 def main():

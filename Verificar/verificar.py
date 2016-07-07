@@ -38,6 +38,7 @@ class Ui_MainWindow(object):
         self.screenWidth = gtk.gdk.screen_width()
         self.screenHeight = gtk.gdk.screen_height()
 
+        MainWindow.show()
         MainWindow.showFullScreen()
 
         self.centralwidget = mainWidget(self, MainWindow)
@@ -173,7 +174,7 @@ def decrypt(message, f):
 def decodificarString(encrypted):
     string = decrypt(encrypted, open(PRIVATE_KEY, 'rb'))
 
-    lstCargos = database.getCargos()
+    lstCargos = database.getCargosQtde()
     infoVotos = string[1:].split(';')
     stringVotos = ''
     for indiceCargo in range(len(lstCargos)):

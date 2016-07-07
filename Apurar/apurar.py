@@ -41,6 +41,7 @@ class Ui_MainWindow(object):
 		self.screenWidth = gtk.gdk.screen_width()
 		self.screenHeight = gtk.gdk.screen_height()
 
+		MainWindow.show()
 		MainWindow.showFullScreen()
 
 		self.centralwidget = mainWidget(self, MainWindow)
@@ -51,15 +52,22 @@ class Ui_MainWindow(object):
 		font.setPointSize(32)
 		font.setItalic(False)
 
+		self.lblTitulo = QLabel(self.centralwidget)
+		self.lblTitulo.setGeometry(QRect(50, 50, self.screenWidth - 100, 50))
+		self.lblTitulo.setObjectName("lblTitulo")
+		self.lblTitulo.setText(u"Apuração")
+		self.lblTitulo.setFont(font)
+		self.lblTitulo.setAlignment(Qt.AlignCenter)
+
 		self.tblVotos = QTableWidget(self.centralwidget)
-		self.tblVotos.setGeometry(QRect(50, 50, self.screenWidth - 100, 500))
+		self.tblVotos.setGeometry(QRect(50, self.lblTitulo.pos().y() + 100, self.screenWidth - 100, 500))
 		self.tblVotos.setObjectName('tblVotos')
 		self.tblVotos.setRowCount(1000000)
 		self.tblVotos.setColumnCount(3)
 		self.tblVotos.setColumnWidth(0,(self.screenWidth - 185)/3)
 		self.tblVotos.setColumnWidth(1,(self.screenWidth - 185)/3)
 		self.tblVotos.setColumnWidth(2,(self.screenWidth - 185)/3)
-		self.tblVotos.setEnabled(False);
+		self.tblVotos.setEnabled(False)
 		horHeader = []
 		horHeader.append('Cargo')
 		horHeader.append('Voto')

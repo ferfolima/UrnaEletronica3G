@@ -40,10 +40,10 @@ class DAO(Singleton):
             self._connect()
         return self.connection.cursor()
 
-    def getCargos(self):
+    def getCargosQtde(self):
         cursor = self._get_cursor()
-        cursor.execute("SELECT nome_cargo FROM cargos")
+        cursor.execute("SELECT nome_cargo, qtde_votos FROM cargos")
         rows = cursor.fetchall()
         cursor.close()
-        rows = [x[0] for x in rows]
+        rows = [y[0] for y in rows for x in range(int(y[1]))]
         return rows

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 import gtk
 import os
@@ -7,6 +7,7 @@ import sys
 from PySide.QtCore import *
 from PySide.QtGui import *
 
+import pynotify
 import eleicoesDB
 
 script_dir = os.path.dirname(__file__)
@@ -29,7 +30,7 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.showFullScreen()
+        MainWindow.showMaximized()
         MainWindow.setWindowIcon(QIcon(ICON))
 
         self.screenWidth = gtk.gdk.screen_width()
@@ -86,7 +87,7 @@ class Ui_MainWindow(object):
         self.lblNomeCandidato.setGeometry(QRect(250, self.lblTitulo.pos().y() + 50, 200, 50))
 
         self.txtNomeCandidato = QLineEdit(self.centralwidget)
-        self.txtNomeCandidato.setGeometry(QRect(250, self.lblNomeCandidato.pos().y() + 40, self.screenWidth - 300, 40))
+        self.txtNomeCandidato.setGeometry(QRect(250, self.lblNomeCandidato.pos().y() + 40, self.screenWidth - 400, 40))
         self.txtNomeCandidato.setObjectName("txtNomeCandidato")
 
         self.lblNumeroCandidato = QLabel(self.centralwidget)
@@ -95,7 +96,7 @@ class Ui_MainWindow(object):
         self.lblNumeroCandidato.setGeometry(QRect(250, self.txtNomeCandidato.pos().y() + 40, 200, 50))
 
         self.txtNumeroCandidato = QLineEdit(self.centralwidget)
-        self.txtNumeroCandidato.setGeometry(QRect(250, self.lblNumeroCandidato.pos().y() + 40, self.screenWidth - 300, 40))
+        self.txtNumeroCandidato.setGeometry(QRect(250, self.lblNumeroCandidato.pos().y() + 40, self.screenWidth - 400, 40))
         self.txtNumeroCandidato.setObjectName("txtNumeroCandidato")
 
         self.lblTituloCandidato = QLabel(self.centralwidget)
@@ -104,7 +105,7 @@ class Ui_MainWindow(object):
         self.lblTituloCandidato.setGeometry(QRect(250, self.txtNumeroCandidato.pos().y() + 40, 200, 50))
 
         self.txtTituloCandidato = QLineEdit(self.centralwidget)
-        self.txtTituloCandidato.setGeometry(QRect(250, self.lblTituloCandidato.pos().y() + 40, self.screenWidth - 300, 40))
+        self.txtTituloCandidato.setGeometry(QRect(250, self.lblTituloCandidato.pos().y() + 40, self.screenWidth - 400, 40))
         self.txtTituloCandidato.setObjectName("txtTituloCandidato")
 
         self.lblCargoCandidato = QLabel(self.centralwidget)
@@ -117,7 +118,7 @@ class Ui_MainWindow(object):
         cargos = database.getCargos()
         for cargo in cargos:
             self.comboCargoCandidato.addItem(cargo)
-        self.comboCargoCandidato.setGeometry(QRect(250, self.lblCargoCandidato.pos().y() + 40, self.screenWidth - 300, 40))
+        self.comboCargoCandidato.setGeometry(QRect(250, self.lblCargoCandidato.pos().y() + 40, self.screenWidth - 400, 40))
 
         self.lblPartidoCandidato = QLabel(self.centralwidget)
         self.lblPartidoCandidato.setObjectName("lblPartidoCandidato")
@@ -140,7 +141,7 @@ class Ui_MainWindow(object):
         self.comboPartidoCandidato.addItem('')
         for partido in partidos:
             self.comboPartidoCandidato.addItem(partido)
-        self.comboPartidoCandidato.setGeometry(QRect(250, self.lblPartidoCandidato.pos().y() + 40, self.screenWidth - 300, 40))
+        self.comboPartidoCandidato.setGeometry(QRect(250, self.lblPartidoCandidato.pos().y() + 40, self.screenWidth - 400, 40))
         self.comboPartidoCandidato.activated[str].connect(self.alterarFotoPartido)
 
         self.btnCadastrar = QPushButton(self.centralwidget)
@@ -162,6 +163,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QApplication.translate("MainWindow", "Urna Eletronica", None, QApplication.UnicodeUTF8))
         self.btnCadastrar.setText(QApplication.translate("MainWindow", "CADASTRAR", None, QApplication.UnicodeUTF8))
         self.btnFoto.setText(QApplication.translate("MainWindow", "INSERIR FOTO", None, QApplication.UnicodeUTF8))
+        self.txtNomeCandidato.setFocus()
 
     def alterarFotoPartido(self, text):
         foto = database.getFotoPartido(text)
@@ -178,17 +180,45 @@ class Ui_MainWindow(object):
 
     # funcao que chama a tela para digitar os numeros ao selecionar um cargo para votar
     def btnCadastrarClicked(self):
-        fin = open(self.lblFotoName.text())
-        img = fin.read()
-        idCargo = database.getCargoId(self.comboCargoCandidato.currentText())
-        idPartido = database.getPartidoId(self.comboPartidoCandidato.currentText())
-        database.inserirCandidato(idCargo, idPartido, self.txtNumeroCandidato.text(), self.txtNomeCandidato.text(), self.txtTituloCandidato.text(), img)
-        pixmap = QPixmap(ICON)
-        self.lblFoto.setPixmap(pixmap)
-        self.lblFotoName.setText(ICON)
-        self.txtTituloCandidato.setText("")
-        self.txtNomeCandidato.setText("")
-        self.txtNumeroCandidato.setText("")
+        if self.txtNomeCandidato.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de inserir o nome')
+            notificacao.show()
+        elif self.txtNumeroCandidato.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de inserir o número')
+            notificacao.show()
+        elif self.txtTituloCandidato.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de inserir o título')
+            notificacao.show()
+        elif self.comboCargoCandidato.currentText() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de selecionar um cargo')
+            notificacao.show()
+        elif self.comboPartidoCandidato.currentText() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de selecionar um partido')
+            notificacao.show()
+        elif self.lblFotoName.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u"Oops", u"Você esqueceu de selecionar uma foto.")
+            notificacao.show()
+        else:
+            fin = open(self.lblFotoName.text())
+            img = fin.read()
+            idCargo = database.getCargoId(self.comboCargoCandidato.currentText())
+            idPartido = database.getPartidoId(self.comboPartidoCandidato.currentText())
+            database.inserirCandidato(idCargo, idPartido, self.txtNumeroCandidato.text(), self.txtNomeCandidato.text(), self.txtTituloCandidato.text(), img)
+            pixmap = QPixmap(ICON)
+            self.lblFoto.setPixmap(pixmap)
+            self.lblFotoName.setText(ICON)
+            self.comboPartidoCandidato.setCurrentIndex(0)
+            self.comboCargoCandidato.setCurrentIndex(0)
+            self.txtTituloCandidato.setText("")
+            self.txtNomeCandidato.setText("")
+            self.txtNumeroCandidato.setText("")
+            self.txtNomeCandidato.setFocus()
 
 
 def main():

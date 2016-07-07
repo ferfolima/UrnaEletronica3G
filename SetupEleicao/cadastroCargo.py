@@ -8,6 +8,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 
 import eleicoesDB
+import pynotify
 
 script_dir = os.path.dirname(__file__)
 ICON = os.path.join(script_dir, "../files/icon.png")
@@ -29,7 +30,7 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.showFullScreen()
+        MainWindow.showMaximized()
         MainWindow.setWindowIcon(QIcon(ICON))
 
         self.screenWidth = gtk.gdk.screen_width()
@@ -57,8 +58,18 @@ class Ui_MainWindow(object):
         self.lblNomeCargo.setGeometry(QRect(50, self.lblTitulo.pos().y() + 50, 200, 50))
 
         self.txtNomeCargo = QLineEdit(self.centralwidget)
-        self.txtNomeCargo.setGeometry(QRect(50, self.lblNomeCargo.pos().y() + 40, self.screenWidth - 100, 40))
+        self.txtNomeCargo.setGeometry(QRect(50, self.lblNomeCargo.pos().y() + 40, self.screenWidth - 200, 40))
         self.txtNomeCargo.setObjectName("txtNomeCargo")
+
+        self.lblQtdeVotos = QLabel(self.centralwidget)
+        self.lblQtdeVotos.setObjectName("lblQtdeVotos")
+        self.lblQtdeVotos.setText("Qtde de vezes a ser votado")
+        self.lblQtdeVotos.setGeometry(QRect(50, self.txtNomeCargo.pos().y() + 50, 200, 50))
+
+        self.txtQtdeVotos = QLineEdit(self.centralwidget)
+        self.txtQtdeVotos.setGeometry(QRect(50, self.lblQtdeVotos.pos().y() + 40, self.screenWidth - 200, 40))
+        self.txtQtdeVotos.setObjectName("txtQtdeVotos")
+        self.txtQtdeVotos.setText("1")
 
         self.btnCadastrar = QPushButton(self.centralwidget)
         self.btnCadastrar.setGeometry(QRect(self.screenWidth / 2 - 100, self.screenHeight - 100, 200, 50))
@@ -79,11 +90,23 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QApplication.translate("MainWindow", "Urna Eletronica", None, QApplication.UnicodeUTF8))
         self.btnCadastrar.setText(QApplication.translate("MainWindow", "CADASTRAR", None, QApplication.UnicodeUTF8))
+        self.txtNomeCargo.setFocus()
 
     # funcao que chama a tela para digitar os numeros ao selecionar um cargo para votar
     def btnCadastrarClicked(self):
-        database.inserirCargo(self.txtNomeCargo.text())
-        self.txtNomeCargo.setText("")
+        if self.txtNomeCargo.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de inserir o nome')
+            notificacao.show()
+        elif self.txtQtdeVotos.text() == "":
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u'Oops', u'Você esqueceu de inserir a quantidade de votos')
+            notificacao.show()
+        else:
+            database.inserirCargo(self.txtNomeCargo.text(), self.txtQtdeVotos.text())
+            self.txtNomeCargo.setText("")
+            self.txtQtdeVotos.setText("1")
+            self.txtNomeCargo.setFocus()
 
 
 def main():

@@ -39,7 +39,10 @@ class Ui_MainWindow(object):
         font.setFamily("Helvetica")
         font.setPointSize(32)
         font.setItalic(False)
+        self.qtdeVotosNecessarios = database.getQtdeVotosCargo(cargo)
         self.cargo = cargo
+        self.qtdeVotos = 0
+        self.candidatoVotado = []
         self.MainWindow = MainWindow
         self.MainWindow.setObjectName("MainWindow")
         self.MainWindow.showFullScreen()
@@ -60,7 +63,6 @@ class Ui_MainWindow(object):
         self.txtQuadrado1.setFont(font)
         self.txtQuadrado1.setObjectName("txtQuadrado1")
         self.txtQuadrado1.setCursorWidth(0)
-        # chamar funcao quando texto é modificado
         self.txtQuadrado1.textChanged.connect(self.txtQuadrado1Action)
 
         self.txtQuadrado2 = QTextEdit(self.centralwidget)
@@ -69,7 +71,6 @@ class Ui_MainWindow(object):
         self.txtQuadrado2.setFont(font)
         self.txtQuadrado2.setObjectName("txtQuadrado2")
         self.txtQuadrado2.setCursorWidth(0)
-        # chamar funcao quando texto é modificado
         self.txtQuadrado2.textChanged.connect(self.txtQuadrado2Action)
 
         self.txtQuadrado3 = QTextEdit(self.centralwidget)
@@ -78,7 +79,6 @@ class Ui_MainWindow(object):
         self.txtQuadrado3.setFont(font)
         self.txtQuadrado3.setObjectName("txtQuadrado3")
         self.txtQuadrado3.setCursorWidth(0)
-        # chamar funcao quando texto é modificado
         self.txtQuadrado3.textChanged.connect(self.txtQuadrado3Action)
 
         self.txtQuadrado4 = QTextEdit(self.centralwidget)
@@ -87,7 +87,6 @@ class Ui_MainWindow(object):
         self.txtQuadrado4.setFont(font)
         self.txtQuadrado4.setObjectName("txtQuadrado4")
         self.txtQuadrado4.setCursorWidth(0)
-        # chamar funcao quando texto é modificado
         self.txtQuadrado4.textChanged.connect(self.txtQuadrado4Action)
 
         self.txtQuadrado5 = QTextEdit(self.centralwidget)
@@ -96,7 +95,6 @@ class Ui_MainWindow(object):
         self.txtQuadrado5.setFont(font)
         self.txtQuadrado5.setObjectName("txtQuadrado5")
         self.txtQuadrado5.setCursorWidth(0)
-        # chamar funcao quando texto é modificado
         self.txtQuadrado5.textChanged.connect(self.txtQuadrado5Action)
 
         # nesse elemento será carregada a foto do candidato/simbolo do partido
@@ -319,8 +317,14 @@ class Ui_MainWindow(object):
         self.cargoVotado.append(0)  # nulo
         self.cargoVotado.append(0)  # legenda
         self.cargoVotado.append("00000")  # numero
-        self.cargos.append(self.cargoVotado)
-        self.MainWindow.close()
+        if (self.lblNumeroLegenda.text() not in self.candidatoVotado or self.lblNumeroLegenda.text() == ""):
+            self.cargos.append(self.cargoVotado)
+            self.candidatoVotado.append(self.lblNumeroLegenda.text())
+            self.qtdeVotos += 1
+            if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
+                self.MainWindow.close()
+            else:
+                self.btnCorrigeClicked()
 
 
     def btnNuloClicked(self):
@@ -330,8 +334,14 @@ class Ui_MainWindow(object):
         self.cargoVotado.append(1)  # nulo
         self.cargoVotado.append(0)  # legenda
         self.cargoVotado.append("00000")  # numero
-        self.cargos.append(self.cargoVotado)
-        self.MainWindow.close()
+        if (self.lblNumeroLegenda.text() not in self.candidatoVotado or self.lblNumeroLegenda.text() == ""):
+            self.cargos.append(self.cargoVotado)
+            self.candidatoVotado.append(self.lblNumeroLegenda.text())
+            self.qtdeVotos += 1
+            if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
+                self.MainWindow.close()
+            else:
+                self.btnCorrigeClicked()
 
 
     # acao quando botao confirma é clicado
@@ -345,8 +355,14 @@ class Ui_MainWindow(object):
         self.cargoVotado.append(1) if self.nulo == True else self.cargoVotado.append(0)  # nulo
         self.cargoVotado.append(1) if self.leg == True  else self.cargoVotado.append(0)  # legenda
         self.cargoVotado.append(stringDigitos)  # numero
-        self.cargos.append(self.cargoVotado)
-        self.MainWindow.close()
+        if(self.lblNumeroLegenda.text() not in self.candidatoVotado or self.lblNumeroLegenda.text() == ""):
+            self.cargos.append(self.cargoVotado)
+            self.candidatoVotado.append(self.lblNumeroLegenda.text())
+            self.qtdeVotos += 1
+            if(self.qtdeVotos == int(self.qtdeVotosNecessarios)):
+                self.MainWindow.close()
+            else:
+                self.btnCorrigeClicked()
 
 
 class ControlMainWindow(QMainWindow):
