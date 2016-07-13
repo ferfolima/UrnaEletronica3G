@@ -1,7 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import MySQLdb as mdb
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+from model import Cargos, Base
 
 class Singleton(object):
     _instance = None
@@ -13,37 +16,21 @@ class Singleton(object):
 
 class DAO(Singleton):
     def __init__(self):
-        """
-        Inits MySQL connection
-        """
         self._connect()
         return
 
     def _connect(self):
-        """
-            Creates connection
-            """
-        self.connection = mdb.connect(host="localhost", \
-                                          user="root", \
-                                          passwd="#F20e12R90#", \
-                                          db="eleicoesdb", \
-                                          port=3306)
-        return
+        self.engine = create_engine('sqlite:///../files/eleicoesdb.db')
+        Base.metadata.bind = self.engine
+        self.DBSession = sessionmaker(bind=self.engine)
+        self.session = self.DBSession()
 
-    def _get_cursor(self):
-        """
-            Pings connection and returns cursor
-            """
-        try:
-            self.connection.ping()
-        except:
-            self._connect()
-        return self.connection.cursor()
+    def getCargos(self):
+        rows = self.session.query(Cargos.nome_cargo).all()
+        rows = [i for i, in rows]
+        return rows
 
     def getCargosQtde(self):
-        cursor = self._get_cursor()
-        cursor.execute("SELECT nome_cargo, qtde_votos FROM cargos")
-        rows = cursor.fetchall()
-        cursor.close()
+        rows = self.session.query(Cargos.nome_cargo, Cargos.qtde_votos).all()
         rows = [y[0] for y in rows for x in range(int(y[1]))]
         return rows

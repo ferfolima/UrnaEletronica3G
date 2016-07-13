@@ -14,6 +14,7 @@ from Crypto.Cipher import PKCS1_OAEP
 import pyqrcode
 from PySide.QtCore import *
 from PySide.QtGui import *
+import subprocess
 
 import votar
 import eleicoesDB
@@ -266,20 +267,25 @@ def gerarString(self, votos):
     c.setPageSize((6.2 * cm, 10 * cm))
     c.setFont("Helvetica", 10)
 
+    line = 9.5
     textobject = c.beginText()
-    textobject.setTextOrigin(0.3 * cm, 9.5 * cm)
-    textobject.textOut("Seu voto é muito importante :)")
+    textobject.setTextOrigin(0.3 * cm, line * cm)
+    textobject.textOut("CONFIRA SEU VOTO")
     stringQRCode = "#"
-
     for cargo in database.getCargosQtde():
         for voto in votos:
             if cargo == str(voto[0]):
+                line -= 0.5
+                textobject.setTextOrigin(0.3 * cm, line * cm)
                 if str(voto[1]) == "1":
                     stringQRCode += "0"
+                    textobject.textOut("{0}: Branco".format(cargo))
                 elif str(voto[2]) == "1":
                     stringQRCode += "-1"
+                    textobject.textOut("{0}: Nulo".format(cargo))
                 else:
                     stringQRCode += str(voto[4])
+                    textobject.textOut("{0}: {1}".format(cargo, voto[4]))
                 votos.remove(voto)
         stringQRCode += ";"
 
@@ -296,9 +302,8 @@ def gerarString(self, votos):
     c.showPage()
     c.save()
 
-
-# subprocess.call(["lp",VOTO_PDF])
-# os.remove(VOTO_PDF)
+    subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True)
+    subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True)
 
 def main():
     if not os.path.isfile(PUBLIC_KEY):

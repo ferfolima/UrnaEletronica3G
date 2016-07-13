@@ -32,11 +32,12 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowIcon(QIcon(ICON))
+        MainWindow.showMaximized()
+
+        self.MainWindow = MainWindow
 
         self.screenWidth = gtk.gdk.screen_width()
         self.screenHeight = gtk.gdk.screen_height()
-
-        MainWindow.showMaximized()
 
         self.centralwidget = mainWidget(self, MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -108,15 +109,15 @@ class Ui_MainWindow(object):
                             background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
                             min-width: 80px;}')
 
-        self.btnExportarTabelas = QPushButton(self.centralwidget)
-        self.btnExportarTabelas.setGeometry(QRect(50, self.btnCadastrarCandidato.pos().y() + 100, 200, 50))
-        self.btnExportarTabelas.setObjectName("btnExportarTabelas")
-        self.btnExportarTabelas.clicked.connect(self.btnExportarTabelasClicked)
-        self.btnExportarTabelas.setStyleSheet('QPushButton{\
-                                border: 2px solid #ee7543;\
-                                border-radius: 6px;\
-                                background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
-                                min-width: 80px;}')
+        self.btnSair = QPushButton(self.centralwidget)
+        self.btnSair.setGeometry(QRect(50, self.screenHeight - 100, 200, 50))
+        self.btnSair.setObjectName("btnSair")
+        self.btnSair.clicked.connect(self.btnSairClicked)
+        self.btnSair.setStyleSheet("QPushButton{\
+        					border: 2px solid #2d2dff;\
+        					border-radius: 6px;\
+        					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
+        					min-width: 80px;}")
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -126,15 +127,18 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QApplication.translate("MainWindow", "MainWindow", None, QApplication.UnicodeUTF8))
-        self.btnCriarTabelas.setText(QApplication.translate("MainWindow", "CRIAR TABELAS", None, QApplication.UnicodeUTF8))
+        self.btnCriarTabelas.setText(QApplication.translate("MainWindow", "APAGAR ELEIÇÃO", None, QApplication.UnicodeUTF8))
         self.btnCadastrarPartido.setText(QApplication.translate("MainWindow", "CADASTRAR PARTIDO", None, QApplication.UnicodeUTF8))
         self.btnCadastrarCargo.setText(QApplication.translate("MainWindow", "CADASTRAR CARGO", None, QApplication.UnicodeUTF8))
         self.btnCadastrarCandidato.setText(QApplication.translate("MainWindow", "CADASTRAR CANDIDATO", None, QApplication.UnicodeUTF8))
-        self.btnExportarTabelas.setText(QApplication.translate("MainWindow", "EXPORTAR TABELAS", None, QApplication.UnicodeUTF8))
+        self.btnSair.setText(QApplication.translate("MainWindow", "SAIR", None, QApplication.UnicodeUTF8))
+
+    def btnSairClicked(self):
+        self.MainWindow.close()
 
     def btnCriarTabelasClicked(self):
-        database.criarTabelas()
-        self.lblProgresso.setText(self.lblProgresso.text() + "\nTabelas criadas com sucesso")
+        database.apagarDados()
+        self.lblProgresso.setText(self.lblProgresso.text() + "\nDados apagados com sucesso")
 
     def btnCadastrarPartidoClicked(self):
         cadastroPartido.ControlMainWindow()
@@ -147,10 +151,6 @@ class Ui_MainWindow(object):
     def btnCadastrarCandidatoClicked(self):
         cadastroCandidato.ControlMainWindow()
         self.lblProgresso.setText(self.lblProgresso.text() + "\nCandidatos cadastrados com sucesso")
-
-    def btnExportarTabelasClicked(self):
-        subprocess.Popen("mysqldump -u root --password='#F20e12R90#' eleicoesdb --result-file='{0}'".format(DB),shell=True)
-        self.lblProgresso.setText(self.lblProgresso.text() + "\nTabelas exportadas com sucesso")
 
 class MyThread(QThread):
     def __init__(self, parent=None):

@@ -5,6 +5,7 @@ from reportlab.lib.units import cm
 from reportlab.pdfgen import canvas
 
 import eleicoesDB
+import subprocess
 
 script_dir = os.path.dirname(__file__)
 BOLETIM_PDF = os.path.join(script_dir, "../files/boletim_de_urna.pdf")
@@ -68,10 +69,12 @@ class incrementar():
                 textobject.setTextOrigin(0.3 * cm, (9.5 - linha) * cm)
                 textobject.textOut(text_label)
         c.drawText(textobject)
-        # c.drawImage('voto.png', 2 * cm, 2 * cm, 5 * cm, 5 * cm)
-        # os.remove('voto.pdf')
         c.showPage()
         c.save()
+        # subprocess.Popen("lpr -P QL-700 -o PageSize=62x100 '{0}'".format(BOLETIM_PDF), shell=True)
+        subprocess.Popen("lp '{0}'".format(BOLETIM_PDF), shell=True)
+        subprocess.Popen("rm '{0}'".format(BOLETIM_PDF), shell=True)
+
 
     def exportarCSV(self):
         stringCsv = "Cargo,Voto,Qtde\n"

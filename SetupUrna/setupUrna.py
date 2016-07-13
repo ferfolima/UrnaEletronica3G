@@ -31,11 +31,12 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowIcon(QIcon(ICON))
+        MainWindow.showMaximized()
+
+        self.MainWindow = MainWindow
 
         self.screenWidth = gtk.gdk.screen_width()
         self.screenHeight = gtk.gdk.screen_height()
-
-        MainWindow.showMaximized()
 
         self.centralwidget = mainWidget(self, MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -77,15 +78,16 @@ class Ui_MainWindow(object):
                     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
                     min-width: 80px;}')
 
-        self.btnImportarTabelas = QPushButton(self.centralwidget)
-        self.btnImportarTabelas.setGeometry(QRect(50, self.btnGerarChaves.pos().y() + 100, 200, 50))
-        self.btnImportarTabelas.setObjectName("btnImportarTabelas")
-        self.btnImportarTabelas.clicked.connect(self.btnImportarTabelasClicked)
-        self.btnImportarTabelas.setStyleSheet('QPushButton{\
-					border: 2px solid #ee7543;\
-					border-radius: 6px;\
-					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
-					min-width: 80px;}')
+
+        self.btnSair = QPushButton(self.centralwidget)
+        self.btnSair.setGeometry(QRect(50, self.screenHeight - 100, 200, 50))
+        self.btnSair.setObjectName("btnSair")
+        self.btnSair.clicked.connect(self.btnSairClicked)
+        self.btnSair.setStyleSheet("QPushButton{\
+            					border: 2px solid #2d2dff;\
+            					border-radius: 6px;\
+            					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
+            					min-width: 80px;}")
 
         if (os.path.isfile(PUBLIC_KEY) and os.path.isfile(PRIVATE_KEY)):
             # print('se do dois arquivos existem, o botao deve ser inativado')
@@ -98,14 +100,13 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QApplication.translate("MainWindow", "MainWindow", None, QApplication.UnicodeUTF8))
-        self.btnImportarTabelas.setText(
-            QApplication.translate("MainWindow", "IMPORTAR TABELAS", None, QApplication.UnicodeUTF8))
         self.btnGerarChaves.setText(
             QApplication.translate("MainWindow", "GERAR CHAVES", None, QApplication.UnicodeUTF8))
+        self.btnSair.setText(QApplication.translate("MainWindow", "SAIR", None, QApplication.UnicodeUTF8))
 
-    def btnImportarTabelasClicked(self):
-        subprocess.Popen("mysql -u root --password='#F20e12R90#' eleicoesdb < '{0}'".format(DB), shell=True)
-        self.lblProgresso.setText(self.lblProgresso.text() + "\nTabelas Importadas com Sucesso")
+    def btnSairClicked(self):
+        self.MainWindow.close()
+
 
     def btnGerarChavesClicked(self):
         generateKey.generate_RSA()

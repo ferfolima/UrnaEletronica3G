@@ -1,7 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import MySQLdb as mdb
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import func, and_
+from model import Partidos, Cargos, Candidatos, Base
 
 class Singleton(object):
     _instance = None
@@ -13,76 +16,43 @@ class Singleton(object):
 
 class DAO(Singleton):
     def __init__(self):
-        """
-        Inits MySQL connection
-        """
         self._connect()
         return
 
     def _connect(self):
-        """
-            Creates connection
-            """
-        self.connection = mdb.connect(host="localhost", \
-                                          user="root", \
-                                          passwd="#F20e12R90#", \
-                                          db="eleicoesdb", \
-                                          port=3306)
-        return
-
-    def _get_cursor(self):
-        """
-            Pings connection and returns cursor
-            """
-        try:
-            self.connection.ping()
-        except:
-            self._connect()
-        return self.connection.cursor()
-
-    def _commit(self):
-        self.connection.commit()
+        self.engine = create_engine('sqlite:///../files/eleicoesdb.db')
+        Base.metadata.bind = self.engine
+        self.DBSession = sessionmaker(bind=self.engine)
+        self.session = self.DBSession()
 
     def getCargos(self):
-        cursor = self._get_cursor()
-        cursor.execute("SELECT nome_cargo FROM cargos")
-        rows = cursor.fetchall()
-        cursor.close()
-        rows = [x[0] for x in rows]
+        rows = self.session.query(Cargos.nome_cargo).all()
+        rows = [i for i, in rows]
         return rows
 
     def getCargosQtde(self):
-        cursor = self._get_cursor()
-        cursor.execute("SELECT nome_cargo, qtde_votos FROM cargos")
-        rows = cursor.fetchall()
-        cursor.close()
+        rows = self.session.query(Cargos.nome_cargo, Cargos.qtde_votos).all()
         rows = [y[0] for y in rows for x in range(int(y[1]))]
         return rows
 
     def getQtdeCargos(self):
-        cursor = self._get_cursor()
-        cursor.execute("SELECT SUM(qtde_votos) FROM cargos")
-        row = cursor.fetchone()
-        cursor.close()
+        row = self.session.query(func.sum(Cargos.qtde_votos))
+        row = [i for i, in row]
         return row[0]
 
     def getQtdeVotosCargo(self, cargo):
-        cursor = self._get_cursor()
-        cursor.execute("SELECT qtde_votos FROM cargos where nome_cargo = %s", cargo)
-        row = cursor.fetchone()
-        cursor.close()
+        row = self.session.query(Cargos.qtde_votos).filter(Cargos.nome_cargo == cargo)
+        row = [i for i, in row]
         return row[0]
 
     def getCandidatoNumeroPartido(self, numerosDigitados, cargo):
         numero = "".join(str(x) for x in numerosDigitados)
-        cursor = self._get_cursor()
-        row_count = cursor.execute("SELECT A.nome_candidato, A.numero_candidato, B.sigla_partido, A.foto_candidato "
-                                   "from candidatos as A "
-                                   "inner join partidos as B on A.id_partido = B.numero_partido "
-                                   "inner join cargos as C on A.id_cargo = C.id "
-                                   "where A.numero_candidato = {0} and C.nome_cargo = '{1}';".format(int(numero), cargo))
-        if row_count > 0:
-            row = cursor.fetchone()
-            cursor.close()
-            return row
-        return (None, None, None, None)
+        row_count = self.session.query(Candidatos.nome_candidato, Candidatos.numero_candidato, Partidos.sigla_partido, Candidatos.foto_candidato)\
+            .join(Partidos, Candidatos.id_partido == Partidos.id)\
+            .join(Cargos, Candidatos.id_cargo == Cargos.id) \
+            .filter(and_(Cargos.nome_cargo == cargo, Candidatos.numero_candidato == numero))\
+            .all()
+        if len(row_count) < 1:
+            return (None, None, None, None)
+        else:
+            return row_count[0]

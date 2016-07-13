@@ -32,6 +32,8 @@ class Ui_MainWindow(object):
         MainWindow.showMaximized()
         MainWindow.setWindowIcon(QIcon(ICON))
 
+        self.MainWindow = MainWindow
+
         self.screenWidth = gtk.gdk.screen_width()
         self.screenHeight = gtk.gdk.screen_height()
 
@@ -139,6 +141,16 @@ class Ui_MainWindow(object):
 					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
 					min-width: 80px;}")
 
+        self.btnSair = QPushButton(self.centralwidget)
+        self.btnSair.setGeometry(QRect(self.screenWidth - 300, self.screenHeight - 100, 200, 50))
+        self.btnSair.setObjectName("btnSair")
+        self.btnSair.clicked.connect(self.btnSairClicked)
+        self.btnSair.setStyleSheet("QPushButton{\
+            					border: 2px solid #2d2dff;\
+            					border-radius: 6px;\
+            					background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #ffffff, stop: 1 #dddddd);\
+            					min-width: 80px;}")
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -149,6 +161,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QApplication.translate("MainWindow", "Urna Eletronica", None, QApplication.UnicodeUTF8))
         self.btnCadastrar.setText(QApplication.translate("MainWindow", "CADASTRAR", None, QApplication.UnicodeUTF8))
         self.btnFoto.setText(QApplication.translate("MainWindow", "INSERIR FOTO", None, QApplication.UnicodeUTF8))
+        self.btnSair.setText(QApplication.translate("MainWindow", "SAIR", None, QApplication.UnicodeUTF8))
         self.txtNomePartido.setFocus()
 
     def btnFotoClicked(self):
@@ -156,6 +169,9 @@ class Ui_MainWindow(object):
         pixmap = QPixmap(fname[0])
         self.lblFoto.setPixmap(pixmap)
         self.lblFotoName.setText(fname[0])
+
+    def btnSairClicked(self):
+        self.MainWindow.close()
 
     # funcao que chama a tela para digitar os numeros ao selecionar um cargo para votar
     def btnCadastrarClicked(self):
@@ -183,6 +199,9 @@ class Ui_MainWindow(object):
             fin = open(self.lblFotoName.text())
             img = fin.read()
             database.inserirPartido(self.txtNumeroPartido.text(), self.txtNomePartido.text(), self.txtSiglaPartido.text(), self.txtPresidentePartido.text(), img)
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u"OK", u"Partido cadastrado com sucesso.")
+            notificacao.show()
             pixmap = QPixmap(ICON)
             self.lblFoto.setPixmap(pixmap)
             self.lblFotoName.setText(ICON)
