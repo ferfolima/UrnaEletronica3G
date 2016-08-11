@@ -65,7 +65,7 @@ class Ui_MainWindow(object):
 
         self.lblQtdeVotos = QLabel(self.centralwidget)
         self.lblQtdeVotos.setObjectName("lblQtdeVotos")
-        self.lblQtdeVotos.setText("Qtde de vezes a ser votado")
+        self.lblQtdeVotos.setText("Quantidade de vezes a ser votado")
         self.lblQtdeVotos.setGeometry(QRect(50, self.txtNomeCargo.pos().y() + 50, 200, 50))
 
         self.txtQtdeVotos = QLineEdit(self.centralwidget)

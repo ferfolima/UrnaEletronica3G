@@ -2,55 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21c57232-eeca-488a-9fc6-55713f7574b3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Apurar/incrementar.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SetupEleicao/eleicoesDB.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SetupEleicao/setupEleicao.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SetupUrna/generateKey.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verificar/eleicoesDB.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Verificar/verificar.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Votar/eleicoesDB.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Urna/apuracao/apurar.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Urna/gerenciar/generateKey.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Urna/verificacao/verificar.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Urna/votacao/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/PyQRCode-1.2.1.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/build-essential_11.6ubuntu6_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/ipython-notebook_1.2.1-2_all.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/ipython_1.2.1-2_all.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/libffi-dev_3.1~rc1+r3.0.13-12ubuntu0.1_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/libssl-dev_1.0.1f-1ubuntu2.19_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/pypng-0.0.18.tar.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-dev_2.7.5-5ubuntu3_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-h5py_2.2.1-1build2_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-matplotlib_1.3.1-1ubuntu5_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-nose_1.3.1-2_all.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-numpy_1%3a1.8.2-0ubuntu0.1_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-pandas_0.13.1-2ubuntu2_all.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-pil_2.3.0-1ubuntu3_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-pip_1.5.4-1ubuntu3_all.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-pyaudio_0.2.7-2build2_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-pyside_1.2.1-4build1_all.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-reportlab_3.0-1build1_all.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-scipy_0.13.3-1build1_amd64.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-sympy_0.7.4.1-1_all.deb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/python-zbar_0.10+doc-9build1_amd64.deb" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/__init__.py" afterPath="$PROJECT_DIR$/Apurar/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/apuracao/__init__.py" afterPath="$PROJECT_DIR$/SetupEleicao/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/apuracao/main.py" afterPath="$PROJECT_DIR$/Apurar/apurar.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/cadastro/cadastroCandidato.py" afterPath="$PROJECT_DIR$/SetupEleicao/cadastroCandidato.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/cadastro/cadastroCargo.py" afterPath="$PROJECT_DIR$/SetupEleicao/cadastroCargo.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/cadastro/cadastroPartido.py" afterPath="$PROJECT_DIR$/SetupEleicao/cadastroPartido.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/gerenciar/__init__.py" afterPath="$PROJECT_DIR$/SetupUrna/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/gerenciar/gerenciar.py" afterPath="$PROJECT_DIR$/SetupUrna/setupUrna.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/urnadao/__init__.py" afterPath="$PROJECT_DIR$/Verificar/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/urnadao/eleicoesDB.py" afterPath="$PROJECT_DIR$/Apurar/eleicoesDB.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/verificacao/__init__.py" afterPath="$PROJECT_DIR$/Votar/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/votacao/main.py" afterPath="$PROJECT_DIR$/Votar/main.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Urna/votacao/votar.py" afterPath="$PROJECT_DIR$/Votar/votar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/eleicoesdb.db" afterPath="$PROJECT_DIR$/files/eleicoesdb.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Apurar/apurar.py" afterPath="$PROJECT_DIR$/Apurar/apurar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SetupEleicao/cadastroCargo.py" afterPath="$PROJECT_DIR$/SetupEleicao/cadastroCargo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Verificar/verificar.py" afterPath="$PROJECT_DIR$/Verificar/verificar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Votar/main.py" afterPath="$PROJECT_DIR$/Votar/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Votar/votar.py" afterPath="$PROJECT_DIR$/Votar/votar.py" />
     </list>
     <ignored path="TG.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="verificar.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Verificar/verificar.py">
+      <file leaf-file-name="votar.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Votar/votar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="56" column="77" selection-start-line="56" selection-start-column="77" selection-end-line="56" selection-end-column="77" />
+            <state relative-caret-position="146">
+              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -99,15 +57,16 @@
         <option value="$PROJECT_DIR$/Apurar/incrementar.py" />
         <option value="$PROJECT_DIR$/Apurar/eleicoesDB.py" />
         <option value="$PROJECT_DIR$/SetupEleicao/eleicoesDB.py" />
-        <option value="$PROJECT_DIR$/Apurar/apurar.py" />
-        <option value="$PROJECT_DIR$/Votar/votar.py" />
         <option value="$PROJECT_DIR$/Votar/eleicoesDB.py" />
-        <option value="$PROJECT_DIR$/Votar/main.py" />
         <option value="$PROJECT_DIR$/SetupEleicao/cadastroPartido.py" />
         <option value="$PROJECT_DIR$/SetupEleicao/cadastroCandidato.py" />
-        <option value="$PROJECT_DIR$/SetupEleicao/setupEleicao.py" />
         <option value="$PROJECT_DIR$/SetupUrna/setupUrna.py" />
         <option value="$PROJECT_DIR$/Verificar/verificar.py" />
+        <option value="$PROJECT_DIR$/Apurar/apurar.py" />
+        <option value="$PROJECT_DIR$/SetupEleicao/cadastroCargo.py" />
+        <option value="$PROJECT_DIR$/SetupEleicao/setupEleicao.py" />
+        <option value="$PROJECT_DIR$/Votar/main.py" />
+        <option value="$PROJECT_DIR$/Votar/votar.py" />
       </list>
     </option>
   </component>
@@ -118,9 +77,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="57" />
     <option name="y" value="24" />
-    <option name="width" value="1309" />
+    <option name="width" value="1366" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -148,7 +106,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -177,27 +135,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Verificar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SetupEleicao" />
+              <option name="myItemId" value="Votar" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -523,27 +467,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="24" width="1309" height="744" extended-state="6" />
+    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980901" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -562,26 +506,37 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Verificar/verificar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Verificar/verificar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Verificar/verificar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SetupEleicao/cadastroCandidato.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#46#56#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Apurar/eleicoesDB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Verificar/eleicoesDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -600,27 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Votar/votar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SetupEleicao/cadastroCargo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SetupEleicao/eleicoesDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Apurar/incrementar.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -628,60 +562,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Apurar/apurar.py">
+    <entry file="file://$PROJECT_DIR$/SetupUrna/setupUrna.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="110" column="34" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Verificar/eleicoesDB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SetupEleicao/cadastroPartido.py">
+    <entry file="file://$PROJECT_DIR$/Verificar/verificar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="101" column="18" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="18" />
+        <state relative-caret-position="105">
+          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apurar/apurar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-589">
+          <caret line="139" column="34" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SetupEleicao/cadastroCandidato.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="187" column="37" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
-          <folding>
-            <element signature="e#46#56#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="192">
+          <caret line="228" column="92" selection-start-line="228" selection-start-column="92" selection-end-line="228" selection-end-column="92" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Votar/main.py">
+    <entry file="file://$PROJECT_DIR$/SetupEleicao/cadastroCargo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="83" selection-end-column="51" />
-          <folding>
-            <element signature="e#46#56#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="310">
+          <caret line="126" column="17" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SetupEleicao/cadastroPartido.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-292">
+          <caret line="101" column="18" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SetupEleicao/eleicoesDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SetupEleicao/setupEleicao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="98" />
+        <state relative-caret-position="324">
+          <caret line="119" column="47" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SetupUrna/setupUrna.py">
+    <entry file="file://$PROJECT_DIR$/Votar/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="110" column="34" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="34" />
+        <state relative-caret-position="428">
+          <caret line="304" column="61" selection-start-line="304" selection-start-column="61" selection-end-line="304" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Verificar/verificar.py">
+    <entry file="file://$PROJECT_DIR$/Votar/votar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="56" column="77" selection-start-line="56" selection-start-column="77" selection-end-line="56" selection-end-column="77" />
+        <state relative-caret-position="146">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
           <folding />
         </state>
       </provider>

@@ -28,6 +28,7 @@ class Ui_MainWindow(object):
     numerosDigitados = []
     cargo = ""
     MainWindow = None
+    branco = False
     nulo = False
     leg = False
 
@@ -45,7 +46,7 @@ class Ui_MainWindow(object):
         self.candidatoVotado = []
         self.MainWindow = MainWindow
         self.MainWindow.setObjectName("MainWindow")
-        self.MainWindow.showFullScreen()
+        self.MainWindow.showMaximized()
 
         self.centralwidget = mainWidget(self, MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -311,20 +312,9 @@ class Ui_MainWindow(object):
 
     # acao quando botao branco é clicado
     def btnBrancoClicked(self):
-        self.cargoVotado = []
-        self.cargoVotado.append(self.cargo)
-        self.cargoVotado.append(1)  # branco
-        self.cargoVotado.append(0)  # nulo
-        self.cargoVotado.append(0)  # legenda
-        self.cargoVotado.append("00000")  # numero
-        if (self.lblNumeroLegenda.text() not in self.candidatoVotado or self.lblNumeroLegenda.text() == ""):
-            self.cargos.append(self.cargoVotado)
-            self.candidatoVotado.append(self.lblNumeroLegenda.text())
-            self.qtdeVotos += 1
-            if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
-                self.MainWindow.close()
-            else:
-                self.btnCorrigeClicked()
+        self.branco = True
+        self.btnCorrigeClicked()
+        self.lblNomeCandidato.setText("Branco")
 
 
     def btnNuloClicked(self):
@@ -346,23 +336,48 @@ class Ui_MainWindow(object):
 
     # acao quando botao confirma é clicado
     def btnConfirmaClicked(self):
-        stringDigitos = ""
-        for i in self.numerosDigitados:
-            stringDigitos += str(i)
-        self.cargoVotado = []
-        self.cargoVotado.append(self.cargo)
-        self.cargoVotado.append(0)  # branco
-        self.cargoVotado.append(1) if self.nulo == True else self.cargoVotado.append(0)  # nulo
-        self.cargoVotado.append(1) if self.leg == True  else self.cargoVotado.append(0)  # legenda
-        self.cargoVotado.append(stringDigitos)  # numero
-        if(self.lblNumeroLegenda.text() not in self.candidatoVotado or self.lblNumeroLegenda.text() == ""):
-            self.cargos.append(self.cargoVotado)
+        if(self.branco):
+            self.branco = False
+            self.cargoVotado = []
+            self.cargoVotado.append(self.cargo)
+            self.cargoVotado.append(1)  # branco
+            self.cargoVotado.append(0)  # nulo
+            self.cargoVotado.append(0)  # legenda
+            self.cargoVotado.append("00000")  # numero
+            if (self.lblNumeroLegenda.text() not in self.candidatoVotado or self.lblNumeroLegenda.text() == ""):
+                self.cargos.append(self.cargoVotado)
             self.candidatoVotado.append(self.lblNumeroLegenda.text())
             self.qtdeVotos += 1
-            if(self.qtdeVotos == int(self.qtdeVotosNecessarios)):
+            if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
                 self.MainWindow.close()
             else:
                 self.btnCorrigeClicked()
+        else:
+            stringDigitos = ""
+            for i in self.numerosDigitados:
+                stringDigitos += str(i)
+            self.cargoVotado = []
+            self.cargoVotado.append(self.cargo)
+            self.cargoVotado.append(0)  # branco
+            self.cargoVotado.append(1) if self.nulo == True else self.cargoVotado.append(0)  # nulo
+            self.cargoVotado.append(1) if self.leg == True  else self.cargoVotado.append(0)  # legenda
+            self.cargoVotado.append(stringDigitos)  # numero
+            if (self.lblNumeroLegenda.text() not in self.candidatoVotado and self.txtQuadrado1.toPlainText() != ""):
+                self.cargos.append(self.cargoVotado)
+                self.candidatoVotado.append(self.lblNumeroLegenda.text())
+                self.qtdeVotos += 1
+                if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
+                    self.MainWindow.close()
+                else:
+                    self.btnCorrigeClicked()
+            elif (self.lblNumeroLegenda.text() in self.candidatoVotado and self.nulo):
+                self.cargos.append(self.cargoVotado)
+                self.candidatoVotado.append(self.lblNumeroLegenda.text())
+                self.qtdeVotos += 1
+                if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
+                    self.MainWindow.close()
+                else:
+                    self.btnCorrigeClicked()
 
 
 class ControlMainWindow(QMainWindow):

@@ -65,7 +65,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.show()
-        MainWindow.showFullScreen()
+        MainWindow.showMaximized()
         MainWindow.setWindowIcon(QIcon(ICON))
 
         self.screenWidth = gtk.gdk.screen_width()
@@ -274,18 +274,23 @@ def gerarString(self, votos):
     stringQRCode = "#"
     for cargo in database.getCargosQtde():
         for voto in votos:
+            string = ""
             if cargo == str(voto[0]):
-                line -= 0.5
-                textobject.setTextOrigin(0.3 * cm, line * cm)
+                string += cargo + ": "
+                textobject.textOut(string)
+                textobject.moveCursor(0, 10)
+                string = ""
                 if str(voto[1]) == "1":
+                    string += "Voto em branco"
                     stringQRCode += "0"
-                    textobject.textOut("{0}: Branco".format(cargo))
                 elif str(voto[2]) == "1":
+                    string += "Voto Nulo"
                     stringQRCode += "-1"
-                    textobject.textOut("{0}: Nulo".format(cargo))
                 else:
+                    string += "Candidato número "+ str(voto[4])
                     stringQRCode += str(voto[4])
-                    textobject.textOut("{0}: {1}".format(cargo, voto[4]))
+                textobject.textOut(string)
+                textobject.moveCursor(0,14)
                 votos.remove(voto)
         stringQRCode += ";"
 
@@ -297,7 +302,7 @@ def gerarString(self, votos):
     url.png(VOTO_PNG, scale=1)
 
     c.drawText(textobject)
-    c.drawImage(VOTO_PNG, 0.05 * cm, 0.05 * cm, 6.1 * cm, 6.1 * cm)
+    c.drawImage(VOTO_PNG, 0.80 * cm, 0.50 * cm, 4.5 * cm, 4.5 * cm)
     os.remove(VOTO_PNG)
     c.showPage()
     c.save()
