@@ -5,7 +5,15 @@ import gtk
 from PySide.QtCore import *
 from PySide.QtGui import *
 
+import pyaudio
+import wave
+import pynotify
+import os
 import eleicoesDB
+
+script_dir = os.path.dirname(__file__)
+BEEP = os.path.join(script_dir, "../files/beep_urna.wav")
+FIM = os.path.join(script_dir, "../files/fim_urna.wav")
 
 database = eleicoesDB.DAO()
 
@@ -336,6 +344,7 @@ class Ui_MainWindow(object):
 
     # acao quando botao confirma é clicado
     def btnConfirmaClicked(self):
+        som(self, 1)
         if(self.branco):
             self.branco = False
             self.cargoVotado = []
@@ -378,7 +387,41 @@ class Ui_MainWindow(object):
                     self.MainWindow.close()
                 else:
                     self.btnCorrigeClicked()
+            else:
+                self.btnCorrigeClicked()
 
+def som(self, tipo):
+    # define stream chunk
+    chunk = 1024
+
+    # open a wav format music
+    if tipo == 1:
+        f = wave.open(BEEP, "rb")
+    elif tipo == 2:
+        f = wave.open(FIM, "rb")
+    else:
+        return
+    # instantiate PyAudio
+    p = pyaudio.PyAudio()
+    # open stream
+    stream = p.open(format=p.get_format_from_width(f.getsampwidth()),
+                    channels=f.getnchannels(),
+                    rate=f.getframerate(),
+                    output=True)
+    # read data
+    data = f.readframes(chunk)
+
+    # play stream
+    while data != "":
+        stream.write(data)
+        data = f.readframes(chunk)
+
+    # stop stream
+    stream.stop_stream()
+    stream.close()
+
+    # close PyAudio
+    p.terminate()
 
 class ControlMainWindow(QMainWindow):
     def __init__(self, cargo, parent=None):

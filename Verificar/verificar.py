@@ -39,7 +39,6 @@ class Ui_MainWindow(object):
         self.screenHeight = gtk.gdk.screen_height()
 
         MainWindow.show()
-        # MainWindow.showFullScreen()
         MainWindow.showMaximized()
 
         self.centralwidget = mainWidget(self, MainWindow)

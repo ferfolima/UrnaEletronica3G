@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21c57232-eeca-488a-9fc6-55713f7574b3" name="Default" comment="" />
+    <list default="true" id="21c57232-eeca-488a-9fc6-55713f7574b3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/eleicoesdb.db" afterPath="$PROJECT_DIR$/files/eleicoesdb.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Apurar/apurar.py" afterPath="$PROJECT_DIR$/Apurar/apurar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Apurar/incrementar.py" afterPath="$PROJECT_DIR$/Apurar/incrementar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Verificar/verificar.py" afterPath="$PROJECT_DIR$/Verificar/verificar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Votar/main.py" afterPath="$PROJECT_DIR$/Votar/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Votar/votar.py" afterPath="$PROJECT_DIR$/Votar/votar.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/xmodpad.sh" afterPath="$PROJECT_DIR$/files/xmodpad.sh" />
+    </list>
     <ignored path="TG.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -31,9 +40,11 @@
       <file leaf-file-name="votar.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Votar/votar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="234">
+              <caret line="321" column="31" selection-start-line="321" selection-start-column="31" selection-end-line="321" selection-end-column="31" />
+              <folding>
+                <element signature="e#46#56#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,17 +57,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Apurar/incrementar.py" />
         <option value="$PROJECT_DIR$/Apurar/eleicoesDB.py" />
         <option value="$PROJECT_DIR$/SetupEleicao/eleicoesDB.py" />
         <option value="$PROJECT_DIR$/Votar/eleicoesDB.py" />
         <option value="$PROJECT_DIR$/SetupEleicao/cadastroPartido.py" />
         <option value="$PROJECT_DIR$/SetupEleicao/cadastroCandidato.py" />
         <option value="$PROJECT_DIR$/SetupUrna/setupUrna.py" />
-        <option value="$PROJECT_DIR$/Verificar/verificar.py" />
-        <option value="$PROJECT_DIR$/Apurar/apurar.py" />
         <option value="$PROJECT_DIR$/SetupEleicao/cadastroCargo.py" />
         <option value="$PROJECT_DIR$/SetupEleicao/setupEleicao.py" />
+        <option value="$PROJECT_DIR$/Apurar/apurar.py" />
+        <option value="$PROJECT_DIR$/Apurar/incrementar.py" />
+        <option value="$PROJECT_DIR$/Verificar/verificar.py" />
         <option value="$PROJECT_DIR$/Votar/main.py" />
         <option value="$PROJECT_DIR$/Votar/votar.py" />
       </list>
@@ -98,7 +109,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -134,6 +144,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -498,6 +509,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Votar/votar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Verificar/verificar.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -547,13 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Apurar/incrementar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SetupUrna/setupUrna.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -568,26 +580,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Verificar/verificar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apurar/apurar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-589">
-          <caret line="139" column="34" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SetupEleicao/cadastroCandidato.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="228" column="92" selection-start-line="228" selection-start-column="92" selection-end-line="228" selection-end-column="92" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -595,7 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="126" column="17" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -603,7 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-292">
           <caret line="101" column="18" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -611,7 +605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -619,23 +612,60 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="119" column="47" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2016.1/system/python_stubs/-1247972723/zbar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apurar/apurar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Verificar/verificar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apurar/incrementar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1860">
+          <caret line="124" column="17" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
+          <folding>
+            <element signature="e#46#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Votar/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="304" column="61" selection-start-line="304" selection-start-column="61" selection-end-line="304" selection-end-column="61" />
+        <state relative-caret-position="443">
+          <caret line="299" column="4" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Votar/votar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="234">
+          <caret line="321" column="31" selection-start-line="321" selection-start-column="31" selection-end-line="321" selection-end-column="31" />
+          <folding>
+            <element signature="e#46#56#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

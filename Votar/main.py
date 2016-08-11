@@ -294,6 +294,10 @@ def gerarString(self, votos):
                 votos.remove(voto)
         stringQRCode += ";"
 
+    textobject.moveCursor(0, 60)
+    string = "_ _ _ _ _ _ Dobre Aqui _ _ _ _ _ _"
+    textobject.textOut(string)
+
     rng = random.SystemRandom()
     id_voto = rng.randint(0, 1000000000)
     stringQRCode += str(id_voto)

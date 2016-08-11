@@ -4,6 +4,8 @@ import gtk
 import os
 import sys
 import zbar
+import pyaudio
+import wave
 from time import sleep
 
 from PySide.QtCore import *
@@ -15,6 +17,8 @@ from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 
 script_dir = os.path.dirname(__file__)
+BEEP = os.path.join(script_dir, "../files/beep_urna.wav")
+FIM = os.path.join(script_dir, "../files/fim_urna.wav")
 PRIVATE_KEY = os.path.join(script_dir, "../files/privatekey.pem")
 ICON = os.path.join(script_dir, "../files/icon.png")
 
@@ -113,6 +117,7 @@ class Ui_MainWindow(object):
 		self.btnLerCodigo.setText(QApplication.translate("MainWindow", "LER CODIGO", None, QApplication.UnicodeUTF8))
 
 	def btnGerarBoletimClicked(self):
+		som(self, 2)
 		self.apurarWindow.gerarBoletim()
 		self.apurarWindow.exportarCSV()
 		sys.exit()
@@ -137,6 +142,7 @@ class Ui_MainWindow(object):
 					self.apurarWindow.incrementar(self.decrypt(symbol.data, open(PRIVATE_KEY, 'rb')))
 				except ValueError:
 					self.lblMensagem.setVisible(True)
+					som(self, 2)
 					self.lblMensagem.setText(U'Voto inválido. Não pertence a esta seção.')
 					self.thread.start()
 
@@ -203,6 +209,39 @@ class ControlMainWindow(QMainWindow):
 		self.ui.lblMensagem.setVisible(False)
 		self.thread.exiting=False
 		self.thread.index=0
+
+def som(self, tipo):
+    # define stream chunk
+    chunk = 1024
+
+    # open a wav format music
+    if tipo == 1:
+        f = wave.open(BEEP, "rb")
+    elif tipo == 2:
+        f = wave.open(FIM, "rb")
+    else:
+        return
+    # instantiate PyAudio
+    p = pyaudio.PyAudio()
+    # open stream
+    stream = p.open(format=p.get_format_from_width(f.getsampwidth()),
+                    channels=f.getnchannels(),
+                    rate=f.getframerate(),
+                    output=True)
+    # read data
+    data = f.readframes(chunk)
+
+    # play stream
+    while data != "":
+        stream.write(data)
+        data = f.readframes(chunk)
+
+    # stop stream
+    stream.stop_stream()
+    stream.close()
+
+    # close PyAudio
+    p.terminate()
 
 def main():
 	app = QApplication(sys.argv)
