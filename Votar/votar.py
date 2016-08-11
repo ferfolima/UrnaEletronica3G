@@ -344,7 +344,6 @@ class Ui_MainWindow(object):
 
     # acao quando botao confirma é clicado
     def btnConfirmaClicked(self):
-        som(self, 1)
         if(self.branco):
             self.branco = False
             self.cargoVotado = []
@@ -354,13 +353,14 @@ class Ui_MainWindow(object):
             self.cargoVotado.append(0)  # legenda
             self.cargoVotado.append("00000")  # numero
             if (self.lblNumeroLegenda.text() not in self.candidatoVotado or self.lblNumeroLegenda.text() == ""):
+                som(self,1)
                 self.cargos.append(self.cargoVotado)
-            self.candidatoVotado.append(self.lblNumeroLegenda.text())
-            self.qtdeVotos += 1
-            if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
-                self.MainWindow.close()
-            else:
-                self.btnCorrigeClicked()
+                self.candidatoVotado.append(self.lblNumeroLegenda.text())
+                self.qtdeVotos += 1
+                if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
+                    self.MainWindow.close()
+                else:
+                    self.btnCorrigeClicked()
         else:
             stringDigitos = ""
             for i in self.numerosDigitados:
@@ -372,6 +372,7 @@ class Ui_MainWindow(object):
             self.cargoVotado.append(1) if self.leg == True  else self.cargoVotado.append(0)  # legenda
             self.cargoVotado.append(stringDigitos)  # numero
             if (self.lblNumeroLegenda.text() not in self.candidatoVotado and self.txtQuadrado1.toPlainText() != ""):
+                som(self,1)
                 self.cargos.append(self.cargoVotado)
                 self.candidatoVotado.append(self.lblNumeroLegenda.text())
                 self.qtdeVotos += 1
@@ -380,6 +381,7 @@ class Ui_MainWindow(object):
                 else:
                     self.btnCorrigeClicked()
             elif (self.lblNumeroLegenda.text() in self.candidatoVotado and self.nulo):
+                som(self,1)
                 self.cargos.append(self.cargoVotado)
                 self.candidatoVotado.append(self.lblNumeroLegenda.text())
                 self.qtdeVotos += 1

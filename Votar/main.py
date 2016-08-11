@@ -270,7 +270,7 @@ def gerarString(self, votos):
     line = 9.5
     textobject = c.beginText()
     textobject.setTextOrigin(0.3 * cm, line * cm)
-    textobject.textOut("CONFIRA SEU VOTO")
+    textobject.moveCursor(0,15)
     stringQRCode = "#"
     for cargo in database.getCargosQtde():
         for voto in votos:
@@ -294,7 +294,7 @@ def gerarString(self, votos):
                 votos.remove(voto)
         stringQRCode += ";"
 
-    textobject.moveCursor(0, 60)
+    textobject.moveCursor(0, 30)
     string = "_ _ _ _ _ _ Dobre Aqui _ _ _ _ _ _"
     textobject.textOut(string)
 
