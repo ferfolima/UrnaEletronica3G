@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21c57232-eeca-488a-9fc6-55713f7574b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/eleicoesdb.db" afterPath="$PROJECT_DIR$/files/eleicoesdb.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Apurar/apurar.py" afterPath="$PROJECT_DIR$/Apurar/apurar.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SetupEleicao/cadastroCargo.py" afterPath="$PROJECT_DIR$/SetupEleicao/cadastroCargo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Verificar/verificar.py" afterPath="$PROJECT_DIR$/Verificar/verificar.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Votar/main.py" afterPath="$PROJECT_DIR$/Votar/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Votar/votar.py" afterPath="$PROJECT_DIR$/Votar/votar.py" />
-    </list>
+    <list default="true" id="21c57232-eeca-488a-9fc6-55713f7574b3" name="Default" comment="" />
     <ignored path="TG.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -468,7 +460,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
