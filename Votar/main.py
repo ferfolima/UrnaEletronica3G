@@ -15,6 +15,7 @@ import pyqrcode
 from PySide.QtCore import *
 from PySide.QtGui import *
 import subprocess
+import pynotify
 
 import votar
 import eleicoesDB
@@ -38,6 +39,35 @@ class ControlMainWindow(QMainWindow):
 
         self.ui = Ui_MainWindow(self.thread)
         self.ui.setupUi(self)
+
+    def keyPressEvent(self, event):
+        if event.text() == '1':
+            self.ui.lstCargos.setCurrentRow(0)
+            self.ui.btnVotarClicked()
+        elif event.text() == '2':
+            self.ui.lstCargos.setCurrentRow(1)
+            self.ui.btnVotarClicked()
+        elif event.text() == '3':
+            self.ui.lstCargos.setCurrentRow(2)
+            self.ui.btnVotarClicked()
+        elif event.text() == '4':
+            self.ui.lstCargos.setCurrentRow(3)
+            self.ui.btnVotarClicked()
+        elif event.text() == '5':
+            self.ui.lstCargos.setCurrentRow(4)
+            self.ui.btnVotarClicked()
+        elif event.text() == '6':
+            self.ui.lstCargos.setCurrentRow(5)
+            self.ui.btnVotarClicked()
+        elif event.text() == '7':
+            self.ui.lstCargos.setCurrentRow(6)
+            self.ui.btnVotarClicked()
+        elif event.text() == '8':
+            self.ui.lstCargos.setCurrentRow(7)
+            self.ui.btnVotarClicked()
+        elif event.text() == '9':
+            self.ui.lstCargos.setCurrentRow(8)
+            self.ui.btnVotarClicked()
 
     def fechar(self):
         sys.exit()
@@ -87,6 +117,7 @@ class Ui_MainWindow(object):
         self.lblTitulo.setFont(font)
         self.lblTitulo.setAlignment(Qt.AlignCenter)
 
+
         self.btnVotar = QPushButton(self.centralwidget)
         self.btnVotar.setGeometry(QRect(self.screenWidth / 2 - 100, self.screenHeight - 100, 200, 50))
         self.btnVotar.setObjectName("btnVotar")
@@ -110,6 +141,17 @@ class Ui_MainWindow(object):
             item = QListWidgetItem(cargo)
             self.lstCargos.addItem(item)
         self.lstCargos.setCurrentRow(0)
+
+        font2 = QFont()
+        font2.setFamily("Helvetica")
+        font2.setPointSize(34)
+        font2.setItalic(False)
+        self.lblSelecionarCargo = QLabel(self.centralwidget)
+        self.lblSelecionarCargo.setGeometry(
+            QRect(50, self.lstCargos.pos().y() - 160, 50, self.screenHeight))
+        self.lblSelecionarCargo.setObjectName("lblTitulo")
+        self.lblSelecionarCargo.setText("1\n2\n3\n4\n5\n6\n7")
+        self.lblSelecionarCargo.setFont(font2)
 
         # label que ira mostrar mensagem "imprimindo voto"
         # ele fica invisivel no inicio e so aparece quando a listview e esvaziada
@@ -138,7 +180,9 @@ class Ui_MainWindow(object):
     # funcao que chama a tela para digitar os numeros ao selecionar um cargo para votar
     def btnVotarClicked(self):
         if self.lstCargos.currentItem() is None:
-            print("Nenhum candidato selecionado")
+            pynotify.init(u"Urna Eletrônica")
+            notificacao = pynotify.Notification(u"ERRO", u"Nenhum candidato selecionado.")
+            notificacao.show()
         else:
             votarCargo = self.lstCargos.currentItem()
             self.votarWindow = votar.ControlMainWindow(votarCargo.text())
@@ -316,8 +360,9 @@ def gerarString(self, votos):
 
 def main():
     if not os.path.isfile(PUBLIC_KEY):
-        print("votacao nao pode ser iniciada")
-        print("chave publica faltando")
+        pynotify.init(u"Urna Eletrônica")
+        notificacao = pynotify.Notification(u"ERRO", u"Chave pública não encontrada.")
+        notificacao.show()
         sys.exit()
 
     app = QApplication(sys.argv)
