@@ -2,3 +2,4 @@
 *.pdf
 *.pem
 .idea/
+eleicoesdb.db

@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import gtk
 import os
-import subprocess
 import sys
 from time import sleep
 
@@ -111,6 +110,7 @@ class Ui_MainWindow(object):
     def btnGerarChavesClicked(self):
         generateKey.generate_RSA()
         self.lblProgresso.setText(self.lblProgresso.text() + "\nChaves geradas com sucesso")
+        self.btnGerarChaves.setEnabled(False)
 
 
 class MyThread(QThread):

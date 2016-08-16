@@ -236,6 +236,8 @@ class Ui_MainWindow(object):
                 pixmap = QPixmap(ICON)
                 self.lblFoto.setPixmap(pixmap)
                 self.lblFotoName.setText(ICON)
+                pixmap = QPixmap(ICON)
+                self.lblFotoPartido.setPixmap(pixmap)
                 self.comboPartidoCandidato.setCurrentIndex(0)
                 self.comboCargoCandidato.setCurrentIndex(0)
                 self.txtTituloCandidato.setText("")
