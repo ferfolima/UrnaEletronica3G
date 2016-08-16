@@ -3,7 +3,7 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+from sqlalchemy.exc import IntegrityError
 from model import Partidos, Cargos, Candidatos, Base
 
 class Singleton(object):
@@ -53,8 +53,13 @@ class DAO(Singleton):
 
     def inserirCandidato(self, idCargo, idPartido, numeroCandidato, nomeCandidato, tituloCandidato, fotoCandidato):
         novo_candidato = Candidatos(id_cargo=idCargo, id_partido=idPartido, numero_candidato=numeroCandidato, nome_candidato=nomeCandidato,     titulo_candidato=tituloCandidato, foto_candidato=fotoCandidato)
-        self.session.add(novo_candidato)
-        self.session.commit()
+        try:
+            self.session.add(novo_candidato)
+            self.session.commit()
+        except IntegrityError:
+            self.session.rollback()
+            return None
+        return novo_candidato
 
     def getSiglas(self):
         rows = self.session.query(Partidos.sigla_partido).all()
