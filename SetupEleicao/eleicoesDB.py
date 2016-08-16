@@ -1,10 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
 from model import Partidos, Cargos, Candidatos, Base
+
+script_dir = os.path.dirname(__file__)
+ELEICOESDB_FILE = os.path.join(script_dir, "../files/eleicoesdb.db")
 
 class Singleton(object):
     _instance = None
@@ -20,7 +24,7 @@ class DAO(Singleton):
         return
 
     def _connect(self):
-        self.engine = create_engine('sqlite:///../files/eleicoesdb.db')
+        self.engine = create_engine('sqlite:///' + ELEICOESDB_FILE)
         # Bind the engine to the metadata of the Base class so that the
         # declaratives can be accessed through a DBSession instance
         Base.metadata.bind = self.engine

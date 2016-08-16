@@ -1,10 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
 from model import Cargos, Base
+
+script_dir = os.path.dirname(__file__)
+ELEICOESDB_FILE = os.path.join(script_dir, "../files/eleicoesdb.db")
 
 class Singleton(object):
     _instance = None
@@ -20,7 +23,7 @@ class DAO(Singleton):
         return
 
     def _connect(self):
-        self.engine = create_engine('sqlite:///../files/eleicoesdb.db')
+        self.engine = create_engine('sqlite:///' + ELEICOESDB_FILE)
         Base.metadata.bind = self.engine
         self.DBSession = sessionmaker(bind=self.engine)
         self.session = self.DBSession()
