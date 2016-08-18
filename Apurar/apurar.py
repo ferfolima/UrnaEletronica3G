@@ -12,14 +12,14 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 
 import incrementar
-from base64 import b64decode
 from Crypto.PublicKey import RSA
-from Crypto.Cipher import PKCS1_OAEP
+from Crypto.Signature import PKCS1_v1_5
+from Crypto.Hash import SHA256
 
 script_dir = os.path.dirname(__file__)
 BEEP = os.path.join(script_dir, "../files/beep_urna.wav")
 FIM = os.path.join(script_dir, "../files/fim_urna.wav")
-PRIVATE_KEY = os.path.join(script_dir, "../files/privatekey.pem")
+PUBLIC_KEY = os.path.join(script_dir, "../files/publickey.pem")
 ICON = os.path.join(script_dir, "../files/icon.png")
 
 class mainWidget(QWidget):
@@ -139,7 +139,7 @@ class Ui_MainWindow(object):
 			for symbol in image.symbols:
 			# do something useful with results
 				try:
-					self.apurarWindow.incrementar(self.decrypt(symbol.data, open(PRIVATE_KEY, 'rb')))
+					self.apurarWindow.incrementar(self.verifySignature(symbol.data, open(PUBLIC_KEY, 'rb')))
 				except ValueError:
 					self.lblMensagem.setVisible(True)
 					som(self, 2)
@@ -176,13 +176,14 @@ class Ui_MainWindow(object):
 		# self.tblVotos.resizeColumnsToContents()
 		# self.tblVotos.resizeRowsToContents()
 
-	def decrypt(self, message, f):
-		ciphertext = b64decode(message) if not isinstance(message, bytes) else message
-		privateKeyFile = f.read()
-		rsakey = RSA.importKey(privateKeyFile)
-		rsakey = PKCS1_OAEP.new(rsakey)
-		decrypted = rsakey.decrypt(b64decode(message))
-		return decrypted  # Decrypt messages using own private keys...
+	def verifySignature(self, sigAndMessage, f):
+		signature, message = sigAndMessage.split(":")
+		publicKeyFile = f.read()
+		key = RSA.importKey(publicKeyFile)
+		h = SHA256.new(signature)
+		verifier = PKCS1_v1_5.new(key)
+		verifier.verify(h, signature)
+		return message
 
 class MyThread(QThread):
 	def __init__(self, parent = None):

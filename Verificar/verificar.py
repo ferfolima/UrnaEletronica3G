@@ -9,14 +9,14 @@ from time import sleep
 from PySide.QtCore import *
 from PySide.QtGui import *
 
-from base64 import b64decode
 from Crypto.PublicKey import RSA
-from Crypto.Cipher import PKCS1_OAEP
+from Crypto.Signature import PKCS1_v1_5
+from Crypto.Hash import SHA256
 
 import eleicoesDB
 
 script_dir = os.path.dirname(__file__)
-PRIVATE_KEY = os.path.join(script_dir, "../files/privatekey.pem")
+PUBLIC_KEY = os.path.join(script_dir, "../files/publickey.pem")
 ICON = os.path.join(script_dir, "../files/icon.png")
 
 
@@ -111,10 +111,12 @@ class Ui_MainWindow(object):
             for symbol in image.symbols:
                 # do something useful with results
                 try:
-                    self.lblVoto.setText(decodificarString(symbol.data))
-                    self.thread.start()
+                    string = verifySignature(symbol.data, open(PUBLIC_KEY, 'rb'))
                 except ValueError:
                     self.lblVoto.setText(U'Voto inválido. Não pertence a esta seção.')
+                    self.thread.start()
+                else:
+                    self.lblVoto.setText(decodificarString(string))
                     self.thread.start()
 
         proc.set_data_handler(my_handler)
@@ -162,18 +164,17 @@ class ControlMainWindow(QMainWindow):
         self.thread.index = 0
 
 
-def decrypt(message, f):
-    ciphertext = b64decode(message) if not isinstance(message, bytes) else message
-    privateKeyFile = f.read()
-    rsakey = RSA.importKey(privateKeyFile)
-    rsakey = PKCS1_OAEP.new(rsakey)
-    decrypted = rsakey.decrypt(b64decode(message))
-    return decrypted  # Decrypt messages using own private keys...
+def verifySignature(sigAndMessage, f):
+    signature, message = sigAndMessage.split(":")
+    publicKeyFile = f.read()
+    key = RSA.importKey(publicKeyFile)
+    h = SHA256.new(signature)
+    verifier = PKCS1_v1_5.new(key)
+    verifier.verify(h, signature)
+    return message
 
 
-def decodificarString(encrypted):
-    string = decrypt(encrypted, open(PRIVATE_KEY, 'rb'))
-
+def decodificarString(string):
     lstCargos = database.getCargosQtde()
     infoVotos = string[1:].split(';')
     stringVotos = ''

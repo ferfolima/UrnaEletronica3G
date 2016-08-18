@@ -27,7 +27,7 @@ class Candidatos(Base):
     id = Column(Integer, primary_key=True)
     id_cargo = Column(Integer, ForeignKey('cargos.id'), nullable=False)
     id_partido = Column(Integer, ForeignKey('partidos.id'), nullable=False)
-    numero_candidato = Column(Integer, nullable=False)
+    numero_candidato = Column(Integer, nullable=False, unique=True)
     nome_candidato = Column(String(250), nullable=False)
     titulo_candidato = Column(String(250), nullable=False, unique=True)
     foto_candidato = Column(BLOB, nullable=True)

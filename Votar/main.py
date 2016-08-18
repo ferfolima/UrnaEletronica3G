@@ -9,11 +9,13 @@ import wave
 from reportlab.lib.units import cm
 from reportlab.pdfgen import canvas
 from time import sleep
+from Crypto.Signature import PKCS1_v1_5
+from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
-from Crypto.Cipher import PKCS1_OAEP
 import pyqrcode
 from PySide.QtCore import *
 from PySide.QtGui import *
+from base64 import b64encode
 import subprocess
 import pynotify
 
@@ -21,7 +23,7 @@ import votar
 import eleicoesDB
 
 script_dir = os.path.dirname(__file__)
-PUBLIC_KEY = os.path.join(script_dir, "../files/publickey.pem")
+PRIVATE_KEY = os.path.join(script_dir, "../files/privatekey.pem")
 ICON = os.path.join(script_dir, "../files/icon.png")
 BEEP = os.path.join(script_dir, "../files/beep_urna.wav")
 FIM = os.path.join(script_dir, "../files/fim_urna.wav")
@@ -295,15 +297,14 @@ def som(self, tipo):
     # close PyAudio
     p.terminate()
 
-
-def encrypt(message, f):
-    publicKeyFile = f.read()
-    rsakey = RSA.importKey(publicKeyFile)
-    rsakey = PKCS1_OAEP.new(rsakey)
-    encrypted = rsakey.encrypt(message)
-    # print encrypted.encode('base64')
-    return encrypted.encode('base64')
-
+def sign(message, f):
+    privateKeyFile = f.read()
+    key = RSA.importKey(privateKeyFile)
+    message = bytes(message).encode('utf-8')
+    h = SHA256.new(message)
+    signer = PKCS1_v1_5.new(key)
+    signature = b64encode(signer.sign(h))
+    return signature, message
 
 # funcao para gerar string para imprimir QRCode
 def gerarString(self, votos):
@@ -345,8 +346,9 @@ def gerarString(self, votos):
     rng = random.SystemRandom()
     id_voto = rng.randint(0, 1000000000)
     stringQRCode += str(id_voto)
-    encryptedMessage = encrypt(stringQRCode, open(PUBLIC_KEY, "rb"))
-    url = pyqrcode.create(encryptedMessage, error="L", encoding="utf-8")
+    signature, message = sign(stringQRCode, open(PRIVATE_KEY, "rb"))
+    sigAndMessage = signature + ":" + message
+    url = pyqrcode.create(sigAndMessage, error="L", encoding="utf-8")
     url.png(VOTO_PNG, scale=1)
 
     c.drawText(textobject)
@@ -355,11 +357,11 @@ def gerarString(self, votos):
     c.showPage()
     c.save()
 
-    subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True)
-    subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True)
+    #subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True).wait()
+    #subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True).wait()
 
 def main():
-    if not os.path.isfile(PUBLIC_KEY):
+    if not os.path.isfile(PRIVATE_KEY):
         pynotify.init(u"Urna Eletrônica")
         notificacao = pynotify.Notification(u"ERRO", u"Chave pública não encontrada.")
         notificacao.show()

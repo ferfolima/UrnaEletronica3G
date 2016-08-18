@@ -220,10 +220,10 @@ class Ui_MainWindow(object):
                 self.txtQuadrado2.setFocus()
                 self.txtQuadrado1.setReadOnly(True)
                 self.numerosDigitados.append(number)
+                self.onChange()
             except ValueError:
                 self.acoesTecladoNumerico(self.txtQuadrado1.toPlainText())
                 self.txtQuadrado1.setText("")
-        self.onChange()
 
     def txtQuadrado2Action(self):
         if len(self.txtQuadrado2.toPlainText()) > 0:
@@ -232,10 +232,10 @@ class Ui_MainWindow(object):
                 self.txtQuadrado3.setFocus()
                 self.txtQuadrado2.setReadOnly(True)
                 self.numerosDigitados.append(number)
+                self.onChange()
             except ValueError:
                 self.acoesTecladoNumerico(self.txtQuadrado2.toPlainText())
                 self.txtQuadrado2.setText("")
-        self.onChange()
 
     def txtQuadrado3Action(self):
         if len(self.txtQuadrado3.toPlainText()) > 0:
@@ -244,10 +244,10 @@ class Ui_MainWindow(object):
                 self.txtQuadrado4.setFocus()
                 self.txtQuadrado3.setReadOnly(True)
                 self.numerosDigitados.append(number)
+                self.onChange()
             except ValueError:
                 self.acoesTecladoNumerico(self.txtQuadrado3.toPlainText())
                 self.txtQuadrado3.setText("")
-        self.onChange()
 
     def txtQuadrado4Action(self):
         if len(self.txtQuadrado4.toPlainText()) > 0:
@@ -256,10 +256,10 @@ class Ui_MainWindow(object):
                 self.txtQuadrado5.setFocus()
                 self.txtQuadrado4.setReadOnly(True)
                 self.numerosDigitados.append(number)
+                self.onChange()
             except ValueError:
                 self.acoesTecladoNumerico(self.txtQuadrado4.toPlainText())
                 self.txtQuadrado4.setText("")
-        self.onChange()
 
     def txtQuadrado5Action(self):
         if len(self.txtQuadrado5.toPlainText()) > 0:
@@ -267,10 +267,10 @@ class Ui_MainWindow(object):
                 number = int(self.txtQuadrado5.toPlainText())
                 self.txtQuadrado5.setReadOnly(True)
                 self.numerosDigitados.append(number)
+                self.onChange()
             except ValueError:
                 self.acoesTecladoNumerico(self.txtQuadrado5.toPlainText())
                 self.txtQuadrado5.setText("")
-        self.onChange()
 
     def onChange(self):
         self.limparTela()
@@ -279,6 +279,7 @@ class Ui_MainWindow(object):
     def preencherTela(self):
         if len(self.numerosDigitados) > 0:
             nome, numero, partido, foto = database.getCandidatoNumeroPartido(self.numerosDigitados, self.cargo)
+            self.branco = False
             if nome is not None and partido is not None and numero is not None and foto is not None:
                 qimg = QImage.fromData(foto)
                 pixmap = QPixmap.fromImage(qimg)
