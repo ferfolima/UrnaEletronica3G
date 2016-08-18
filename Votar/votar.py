@@ -27,7 +27,6 @@ class mainWidget(QWidget):
     def keyPressEvent(self, event):
         self.ui.acoesTecladoNumerico(event.text())
 
-# n nulo
 # b branco
 # c corrige
 # a confirma
@@ -40,7 +39,6 @@ class Ui_MainWindow(object):
     MainWindow = None
     branco = False
     nulo = False
-    leg = False
 
     def setupUi(self, MainWindow, cargo):
         self.screenWidth = gtk.gdk.screen_width()
@@ -203,9 +201,7 @@ class Ui_MainWindow(object):
         self.btnConfirma.setText(QApplication.translate("MainWindow", "CONFIRMA", None, QApplication.UnicodeUTF8))
 
     def acoesTecladoNumerico(self, text):
-        if text == "n":  # nulo
-            self.btnNuloClicked()
-        elif text == "b":  # branco
+        if text == "b":  # branco
             self.btnBrancoClicked()
         elif text == "c":  # corrige
             self.btnCorrigeClicked()
@@ -274,38 +270,13 @@ class Ui_MainWindow(object):
                 self.acoesTecladoNumerico(self.txtQuadrado5.toPlainText())
                 self.txtQuadrado5.setText("")
 
-    def onChange(self):
-        self.limparTela()
-        self.preencherTela()
+                # zerar todos os textEdit quando botao corrige é clicado
 
-    def preencherTela(self):
-        if len(self.numerosDigitados) > 0:
-            nome, numero, partido, foto = database.getCandidatoNumeroPartido(self.numerosDigitados, self.cargo)
-            self.branco = False
-            if nome is not None and partido is not None and numero is not None and foto is not None:
-                qimg = QImage.fromData(foto)
-                pixmap = QPixmap.fromImage(qimg)
-                self.lblFoto.setPixmap(pixmap)
-                self.nulo = False
-                self.lblNomeCandidato.setText(nome)
-                self.lblNomePartido.setText(partido)
-                self.lblNumeroLegenda.setText(str(numero))
-
-    # limpar as informacoes da tela toda vez que ela é iniciada e quando botao corrige é clicado
-    def limparTela(self):
-        self.nulo = True
-        self.leg = False
-        self.lblNomeCandidato.setText("")
-        self.lblNomePartido.setText("")
-        self.lblNumeroLegenda.setText("")
-        self.lblFoto.setPixmap("")
-
-
-    # zerar todos os textEdit quando botao corrige é clicado
     # dar foco ao textEdit1
     def btnCorrigeClicked(self):
         while len(self.numerosDigitados) > 0:
             self.numerosDigitados.pop()
+        self.nulo = True
         self.txtQuadrado1.setReadOnly(False)
         self.txtQuadrado2.setReadOnly(False)
         self.txtQuadrado3.setReadOnly(False)
@@ -320,6 +291,32 @@ class Ui_MainWindow(object):
         self.txtQuadrado1.setFocus()
         self.limparTela()
 
+    def onChange(self):
+        self.limparTela()
+        self.preencherTela()
+
+    # limpar as informacoes da tela toda vez que ela é iniciada e quando botao corrige é clicado
+    def limparTela(self):
+        self.lblNomeCandidato.setText("")
+        self.lblNomePartido.setText("")
+        self.lblNumeroLegenda.setText("")
+        self.lblFoto.setPixmap("")
+
+    def preencherTela(self):
+        if len(self.numerosDigitados) > 0:
+            nome, numero, partido, foto = database.getCandidatoNumeroPartido(self.numerosDigitados, self.cargo)
+            self.branco = False
+            if nome is not None and partido is not None and numero is not None and foto is not None:
+                qimg = QImage.fromData(foto)
+                pixmap = QPixmap.fromImage(qimg)
+                self.lblFoto.setPixmap(pixmap)
+                self.nulo = False
+                self.lblNomeCandidato.setText(nome)
+                self.lblNomePartido.setText(partido)
+                self.lblNumeroLegenda.setText(str(numero))
+            else:
+                self.nulo = True
+
 
     # acao quando botao branco é clicado
     def btnBrancoClicked(self):
@@ -328,14 +325,24 @@ class Ui_MainWindow(object):
         self.lblNomeCandidato.setText("Branco")
 
 
-    def btnNuloClicked(self):
+    # acao quando botao confirma é clicado
+    def btnConfirmaClicked(self):
         self.cargoVotado = []
         self.cargoVotado.append(self.cargo)
-        self.cargoVotado.append(0)  # branco
-        self.cargoVotado.append(1)  # nulo
-        self.cargoVotado.append(0)  # legenda
-        self.cargoVotado.append("00000")  # numero
-        if (self.lblNumeroLegenda.text() not in self.candidatoVotado or self.lblNumeroLegenda.text() == ""):
+        if(self.branco):
+            self.cargoVotado.append(1)  # branco
+            self.cargoVotado.append(0)  # nulo
+            self.cargoVotado.append("00000")  # numero
+        else:
+            stringDigitos = ""
+            for i in self.numerosDigitados:
+                stringDigitos += str(i)
+            self.cargoVotado.append(0)  # branco
+            self.cargoVotado.append(1) if self.nulo == True else self.cargoVotado.append(0)  # nulo
+            self.cargoVotado.append(stringDigitos)  # numero
+
+        if(self.lblNumeroLegenda.text() not in self.candidatoVotado or self.branco or self.nulo):
+            som(self,1)
             self.cargos.append(self.cargoVotado)
             self.candidatoVotado.append(self.lblNumeroLegenda.text())
             self.qtdeVotos += 1
@@ -343,57 +350,9 @@ class Ui_MainWindow(object):
                 self.MainWindow.close()
             else:
                 self.btnCorrigeClicked()
-
-
-    # acao quando botao confirma é clicado
-    def btnConfirmaClicked(self):
-        if(self.branco):
-            self.branco = False
-            self.cargoVotado = []
-            self.cargoVotado.append(self.cargo)
-            self.cargoVotado.append(1)  # branco
-            self.cargoVotado.append(0)  # nulo
-            self.cargoVotado.append(0)  # legenda
-            self.cargoVotado.append("00000")  # numero
-            if (self.lblNumeroLegenda.text() not in self.candidatoVotado or self.lblNumeroLegenda.text() == ""):
-                som(self,1)
-                self.cargos.append(self.cargoVotado)
-                self.candidatoVotado.append(self.lblNumeroLegenda.text())
-                self.qtdeVotos += 1
-                if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
-                    self.MainWindow.close()
-                else:
-                    self.btnCorrigeClicked()
         else:
-            stringDigitos = ""
-            for i in self.numerosDigitados:
-                stringDigitos += str(i)
-            self.cargoVotado = []
-            self.cargoVotado.append(self.cargo)
-            self.cargoVotado.append(0)  # branco
-            self.cargoVotado.append(1) if self.nulo == True else self.cargoVotado.append(0)  # nulo
-            self.cargoVotado.append(1) if self.leg == True  else self.cargoVotado.append(0)  # legenda
-            self.cargoVotado.append(stringDigitos)  # numero
-            if (self.lblNumeroLegenda.text() not in self.candidatoVotado and self.txtQuadrado1.toPlainText() != ""):
-                som(self,1)
-                self.cargos.append(self.cargoVotado)
-                self.candidatoVotado.append(self.lblNumeroLegenda.text())
-                self.qtdeVotos += 1
-                if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
-                    self.MainWindow.close()
-                else:
-                    self.btnCorrigeClicked()
-            elif (self.lblNumeroLegenda.text() in self.candidatoVotado and self.nulo):
-                som(self,1)
-                self.cargos.append(self.cargoVotado)
-                self.candidatoVotado.append(self.lblNumeroLegenda.text())
-                self.qtdeVotos += 1
-                if (self.qtdeVotos == int(self.qtdeVotosNecessarios)):
-                    self.MainWindow.close()
-                else:
-                    self.btnCorrigeClicked()
-            else:
-                self.btnCorrigeClicked()
+            self.btnCorrigeClicked()
+
 
 def som(self, tipo):
     # define stream chunk

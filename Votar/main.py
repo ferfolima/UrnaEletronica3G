@@ -243,8 +243,8 @@ def gerarString(self, votos):
                     string += "Voto Nulo"
                     stringQRCode += "-1"
                 else:
-                    string += "Candidato número "+ str(voto[4])
-                    stringQRCode += str(voto[4])
+                    string += "Candidato número "+ str(voto[3])
+                    stringQRCode += str(voto[3])
                 textobject.textOut(string)
                 textobject.moveCursor(0,14)
                 votos.remove(voto)
@@ -267,8 +267,8 @@ def gerarString(self, votos):
     c.showPage()
     c.save()
 
-    subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True).wait()
-    subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True).wait()
+    #subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True).wait()
+    #subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True).wait()
 
     sys.exit()
 
