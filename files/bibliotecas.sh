@@ -20,5 +20,5 @@ apt-get -y install python-pyaudio
 /usr/bin/yes | pip install SQLAlchemy
 /usr/bin/yes | pip install pypng
 /usr/bin/yes | pip install pyqrcode
-
+/usr/bin/yes | pip install pycryptodomex
 echo "Tudo foi instalado corretamente"

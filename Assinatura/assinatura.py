@@ -1,6 +1,6 @@
-from Crypto.Signature import PKCS1_PSS
-from Crypto.Hash import SHA256
-from Crypto.PublicKey import RSA
+from Cryptodome.Signature import PKCS1_PSS
+from Cryptodome.Hash import SHA256
+from Cryptodome.PublicKey import RSA
 from base64 import b64encode
 
 def sign(message, f):

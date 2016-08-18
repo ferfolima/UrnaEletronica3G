@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from Crypto.PublicKey import RSA
+from Cryptodome.PublicKey import RSA
 import os
 
 script_dir = os.path.dirname(__file__)
