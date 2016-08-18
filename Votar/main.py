@@ -13,6 +13,7 @@ import pyqrcode
 from PySide.QtCore import *
 from PySide.QtGui import *
 import subprocess
+from base64 import b64encode
 import pynotify
 import votar
 from os import path
@@ -332,8 +333,7 @@ def gerarString(self, votos):
     string = "_ _ _ _ _ _ Dobre Aqui _ _ _ _ _ _"
     textobject.textOut(string)
 
-    rng = random.SystemRandom()
-    id_voto = rng.randint(0, 1000000000)
+    id_voto = b64encode(os.urandom(128))
     stringQRCode += str(id_voto)
     signature, message = assinatura.sign(stringQRCode, open(PRIVATE_KEY, "rb"))
     sigAndMessage = signature + ":" + message
@@ -346,8 +346,8 @@ def gerarString(self, votos):
     c.showPage()
     c.save()
 
-    #subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True).wait()
-    #subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True).wait()
+    subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True).wait()
+    subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True).wait()
 
 def main():
     if not os.path.isfile(PRIVATE_KEY):
