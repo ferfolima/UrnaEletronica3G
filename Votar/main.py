@@ -3,12 +3,10 @@
 import gtk
 import os
 import pyaudio
-import random
 import sys
 import wave
 from reportlab.lib.units import cm
 from reportlab.pdfgen import canvas
-from time import sleep
 import pyqrcode
 from PySide.QtCore import *
 from PySide.QtGui import *
@@ -34,11 +32,7 @@ class ControlMainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(ControlMainWindow, self).__init__(parent)
 
-        # thread criada para aguardar 5 segundos antes de reiniciar o programa apos um eleitor votar
-        self.thread = MyThread()
-        self.thread.finished.connect(self.fechar)
-
-        self.ui = Ui_MainWindow(self.thread)
+        self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
     def keyPressEvent(self, event):
@@ -70,29 +64,8 @@ class ControlMainWindow(QMainWindow):
             self.ui.lstCargos.setCurrentRow(8)
             self.ui.btnVotarClicked()
 
-    def fechar(self):
-        sys.exit()
-
-        # Reexecutar o programa ao sair?
-        python = sys.executable
-        os.execl(python, python, *sys.argv)
-
 
 class Ui_MainWindow(object):
-    def __init__(self, thread):
-        self.thread = thread
-
-    def eventFilter(self, object, event):
-        if event.type() == QEvent.WindowActivate:
-            if self.ui.votarWindow is not None:
-                if database.getQtdeCargos() == self.ui.votarWindow.getQtdeCargosVotados():
-                    if self.ui.thread.isRunning():
-                        self.ui.thread.exiting = True
-                    else:
-                        self.ui.lblImprimir.setText("Imprimindo voto")
-                        self.ui.thread.start()
-                        gerarString(self, self.ui.votarWindow.getCargosVotados())
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.show()
@@ -205,62 +178,10 @@ class mainWidget(QWidget):
         if event.type() == QEvent.WindowActivate:
             if self.ui.votarWindow is not None:
                 if database.getQtdeCargos() == self.ui.votarWindow.getQtdeCargosVotados():
-                    if self.ui.thread.isRunning():
-                        self.ui.thread.exiting = True
-                    else:
-                        self.ui.lblImprimir.setText("Imprimindo voto")
-                        self.ui.thread.start()
-                        gerarString(self, self.ui.votarWindow.getCargosVotados())
+                    som(self, 2)
+                    self.ui.lblImprimir.setText("Imprimindo voto")
+                    gerarString(self, self.ui.votarWindow.getCargosVotados())
         return False
-
-        def keyPressEvent(self, event):
-            if event.text() == "v":
-                self.ui.btnVotarClicked()
-            elif event.text() == "a":
-                self.ui.btnVotarClicked()
-            elif event.text() == "1":
-                self.ui.lstCargos.setCurrentRow(0)
-                self.ui.btnVotarClicked()
-            elif event.text() == "2":
-                self.ui.lstCargos.setCurrentRow(1)
-                self.ui.btnVotarClicked()
-            elif event.text() == "3":
-                self.ui.lstCargos.setCurrentRow(2)
-                self.ui.btnVotarClicked()
-            elif event.text() == "4":
-                self.ui.lstCargos.setCurrentRow(3)
-                self.ui.btnVotarClicked()
-            elif event.text() == "5":
-                self.ui.lstCargos.setCurrentRow(4)
-                self.ui.btnVotarClicked()
-            elif event.text() == "6":
-                self.ui.lstCargos.setCurrentRow(5)
-                self.ui.btnVotarClicked()
-            elif event.text() == "7":
-                self.ui.lstCargos.setCurrentRow(6)
-                self.ui.btnVotarClicked()
-            elif event.text() == "8":
-                self.ui.lstCargos.setCurrentRow(7)
-                self.ui.btnVotarClicked()
-            elif event.text() == "9":
-                self.ui.lstCargos.setCurrentRow(8)
-                self.ui.btnVotarClicked()
-
-
-# thread
-class MyThread(QThread):
-    def __init__(self, parent=None):
-        QThread.__init__(self, parent)
-        self.exiting = False
-        self.index = 0
-
-    def run(self):
-        som(self, 2)
-        while self.exiting == False:
-            self.index += 1
-            sleep(1)
-            if self.index == 6:
-                self.exiting = True
 
 
 def som(self, tipo):
@@ -348,6 +269,8 @@ def gerarString(self, votos):
 
     subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True).wait()
     subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True).wait()
+
+    sys.exit()
 
 def main():
     if not os.path.isfile(PRIVATE_KEY):
