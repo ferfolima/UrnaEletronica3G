@@ -267,8 +267,8 @@ def gerarString(self, votos):
     c.showPage()
     c.save()
 
-    #subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True).wait()
-    #subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True).wait()
+    subprocess.Popen("lp '{0}'".format(VOTO_PDF), shell=True).wait()
+    subprocess.Popen("rm '{0}'".format(VOTO_PDF), shell=True).wait()
 
     sys.exit()
 
