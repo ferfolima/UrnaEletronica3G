@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import gtk
 import os
-import sys
 import zbar
 import pyaudio
 import wave
@@ -12,9 +11,11 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 
 import incrementar
-from Crypto.PublicKey import RSA
-from Crypto.Signature import PKCS1_v1_5
-from Crypto.Hash import SHA256
+
+import sys
+from os import path
+sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+from Assinatura import assinatura
 
 script_dir = os.path.dirname(__file__)
 BEEP = os.path.join(script_dir, "../files/beep_urna.wav")
@@ -30,8 +31,6 @@ class mainWidget(QWidget):
 	def keyPressEvent(self, event):
 		if event.text() == '.':
 			self.ui.btnLerCodigoClicked()
-		# elif event.text() == '\n':
-		# 	print('deu certo')
 
 class Ui_MainWindow(object):
 	def __init__(self, thread):
@@ -139,7 +138,7 @@ class Ui_MainWindow(object):
 			for symbol in image.symbols:
 			# do something useful with results
 				try:
-					self.apurarWindow.incrementar(self.verifySignature(symbol.data, open(PUBLIC_KEY, 'rb')))
+					self.apurarWindow.incrementar(assinatura.verifySignature(symbol.data, open(PUBLIC_KEY, 'rb')))
 				except ValueError:
 					self.lblMensagem.setVisible(True)
 					som(self, 2)
@@ -173,17 +172,6 @@ class Ui_MainWindow(object):
 					self.tblVotos.setItem(i,1,QTableWidgetItem(k))
 				self.tblVotos.setItem(i,2,QTableWidgetItem(str(votos[key][k])))
 				i = i + 1
-		# self.tblVotos.resizeColumnsToContents()
-		# self.tblVotos.resizeRowsToContents()
-
-	def verifySignature(self, sigAndMessage, f):
-		signature, message = sigAndMessage.split(":")
-		publicKeyFile = f.read()
-		key = RSA.importKey(publicKeyFile)
-		h = SHA256.new(signature)
-		verifier = PKCS1_v1_5.new(key)
-		verifier.verify(h, signature)
-		return message
 
 class MyThread(QThread):
 	def __init__(self, parent = None):

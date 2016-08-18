@@ -2,18 +2,16 @@
 # -*- coding: utf-8 -*-
 import gtk
 import os
-import sys
 import zbar
 from time import sleep
-
 from PySide.QtCore import *
 from PySide.QtGui import *
 
-from Crypto.PublicKey import RSA
-from Crypto.Signature import PKCS1_v1_5
-from Crypto.Hash import SHA256
-
-import eleicoesDB
+import sys
+from os import path
+sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+from DB import eleicoesDB
+from Assinatura import assinatura
 
 script_dir = os.path.dirname(__file__)
 PUBLIC_KEY = os.path.join(script_dir, "../files/publickey.pem")
@@ -111,7 +109,7 @@ class Ui_MainWindow(object):
             for symbol in image.symbols:
                 # do something useful with results
                 try:
-                    string = verifySignature(symbol.data, open(PUBLIC_KEY, 'rb'))
+                    string = assinatura.verifySignature(symbol.data, open(PUBLIC_KEY, 'rb'))
                 except ValueError:
                     self.lblVoto.setText(U'Voto inválido. Não pertence a esta seção.')
                     self.thread.start()
@@ -162,16 +160,6 @@ class ControlMainWindow(QMainWindow):
         self.ui.lblVoto.setText("")
         self.thread.exiting = False
         self.thread.index = 0
-
-
-def verifySignature(sigAndMessage, f):
-    signature, message = sigAndMessage.split(":")
-    publicKeyFile = f.read()
-    key = RSA.importKey(publicKeyFile)
-    h = SHA256.new(signature)
-    verifier = PKCS1_v1_5.new(key)
-    verifier.verify(h, signature)
-    return message
 
 
 def decodificarString(string):

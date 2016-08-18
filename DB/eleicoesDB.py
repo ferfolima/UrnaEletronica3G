@@ -1,11 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import IntegrityError
-from model import Partidos, Cargos, Candidatos, Base
+from sqlalchemy import func, and_
+import os
+import sys
+from os import path
+sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+from DB.model import Partidos, Cargos, Candidatos, Base
 
 script_dir = os.path.dirname(__file__)
 ELEICOESDB_FILE = os.path.join(script_dir, "../files/eleicoesdb.db")
@@ -25,18 +29,8 @@ class DAO(Singleton):
 
     def _connect(self):
         self.engine = create_engine('sqlite:///' + ELEICOESDB_FILE)
-        # Bind the engine to the metadata of the Base class so that the
-        # declaratives can be accessed through a DBSession instance
         Base.metadata.bind = self.engine
-
         self.DBSession = sessionmaker(bind=self.engine)
-        # A DBSession() instance establishes all conversations with the database
-        # and represents a "staging zone" for all the objects loaded into the
-        # database session object. Any change made against the objects in the
-        # session won't be persisted into the database until you call
-        # session.commit(). If you're not happy about the changes, you can
-        # revert all of them back to the last commit by calling
-        # session.rollback()
         self.session = self.DBSession()
 
     def apagarDados(self):
@@ -85,7 +79,34 @@ class DAO(Singleton):
         row = [i for i, in row]
         return row[0]
 
+    def getCargosQtde(self):
+        rows = self.session.query(Cargos.nome_cargo, Cargos.qtde_votos).all()
+        rows = [y[0] for y in rows for x in range(int(y[1]))]
+        return rows
+
     def getFotoPartido(self, sigla):
         row = self.session.query(Partidos.foto_partido).filter(Partidos.sigla_partido == sigla)
         row = [i for i, in row]
         return row[0]
+
+    def getQtdeCargos(self):
+        row = self.session.query(func.sum(Cargos.qtde_votos))
+        row = [i for i, in row]
+        return row[0]
+
+    def getQtdeVotosCargo(self, cargo):
+        row = self.session.query(Cargos.qtde_votos).filter(Cargos.nome_cargo == cargo)
+        row = [i for i, in row]
+        return row[0]
+
+    def getCandidatoNumeroPartido(self, numerosDigitados, cargo):
+        numero = "".join(str(x) for x in numerosDigitados)
+        row_count = self.session.query(Candidatos.nome_candidato, Candidatos.numero_candidato, Partidos.sigla_partido, Candidatos.foto_candidato)\
+            .join(Partidos, Candidatos.id_partido == Partidos.id)\
+            .join(Cargos, Candidatos.id_cargo == Cargos.id) \
+            .filter(and_(Cargos.nome_cargo == cargo, Candidatos.numero_candidato == numero))\
+            .all()
+        if len(row_count) < 1:
+            return (None, None, None, None)
+        else:
+            return row_count[0]

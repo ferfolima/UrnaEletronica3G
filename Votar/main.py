@@ -9,18 +9,16 @@ import wave
 from reportlab.lib.units import cm
 from reportlab.pdfgen import canvas
 from time import sleep
-from Crypto.Signature import PKCS1_v1_5
-from Crypto.Hash import SHA256
-from Crypto.PublicKey import RSA
 import pyqrcode
 from PySide.QtCore import *
 from PySide.QtGui import *
-from base64 import b64encode
 import subprocess
 import pynotify
-
 import votar
-import eleicoesDB
+from os import path
+sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+from DB import eleicoesDB
+from Assinatura import assinatura
 
 script_dir = os.path.dirname(__file__)
 PRIVATE_KEY = os.path.join(script_dir, "../files/privatekey.pem")
@@ -297,15 +295,6 @@ def som(self, tipo):
     # close PyAudio
     p.terminate()
 
-def sign(message, f):
-    privateKeyFile = f.read()
-    key = RSA.importKey(privateKeyFile)
-    message = bytes(message).encode('utf-8')
-    h = SHA256.new(message)
-    signer = PKCS1_v1_5.new(key)
-    signature = b64encode(signer.sign(h))
-    return signature, message
-
 # funcao para gerar string para imprimir QRCode
 def gerarString(self, votos):
     c = canvas.Canvas(VOTO_PDF)
@@ -346,7 +335,7 @@ def gerarString(self, votos):
     rng = random.SystemRandom()
     id_voto = rng.randint(0, 1000000000)
     stringQRCode += str(id_voto)
-    signature, message = sign(stringQRCode, open(PRIVATE_KEY, "rb"))
+    signature, message = assinatura.sign(stringQRCode, open(PRIVATE_KEY, "rb"))
     sigAndMessage = signature + ":" + message
     url = pyqrcode.create(sigAndMessage, error="L", encoding="utf-8")
     url.png(VOTO_PNG, scale=1)
