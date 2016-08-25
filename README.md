@@ -4,7 +4,7 @@ Urna Eletronica de 3 Geracao
 ##Sobre a Urna
 Esse Software foi desenvolvido como um Trabalho de Conclusão de Curso da Universidade Federal do ABC.
 
-Para ler mais informações sobre o processo de desenvolvimento e sobre o funcionamento do softare, faça download do [paper](https://github.com/ferfolima/UrnaEletronica3G/blob/master/Urna_Eletronica_de 3a_Geracao_TCC.pdf)
+Para ler mais informações sobre o processo de desenvolvimento e sobre o funcionamento do software, faça download do [paper](https://github.com/ferfolima/UrnaEletronica3G/blob/master/Urna_Eletronica_de 3a_Geracao_TCC.pdf)
 
 ##Modulos
 ###Setup de Eleicao
