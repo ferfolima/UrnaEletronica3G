@@ -12,6 +12,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 
 import incrementar
+from ed25519 import BadSignatureError
 
 from ..Assinatura import assinatura
 
@@ -137,7 +138,7 @@ class Ui_MainWindow(object):
 			# do something useful with results
 				try:
 					self.apurarWindow.incrementar(assinatura.verifySignature(symbol.data, open(PUBLIC_KEY, 'rb')))
-				except ValueError:
+				except BadSignatureError:
 					self.lblMensagem.setVisible(True)
 					som(self, 2)
 					self.lblMensagem.setText(U'Voto inválido. Não pertence a esta seção.')

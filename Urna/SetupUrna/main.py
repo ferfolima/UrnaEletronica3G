@@ -108,7 +108,7 @@ class Ui_MainWindow(object):
 
 
     def btnGerarChavesClicked(self):
-        generateKey.generate_RSA()
+        generateKey.generateKey()
         self.lblProgresso.setText(self.lblProgresso.text() + "\nChaves geradas com sucesso")
         self.btnGerarChaves.setEnabled(False)
 
