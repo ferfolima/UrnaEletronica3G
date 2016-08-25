@@ -230,6 +230,7 @@ def gerarString(self, votos):
     textobject.setTextOrigin(0.3 * cm, line * cm)
     textobject.moveCursor(0,15)
     stringQRCode = "#"
+    moverLinhas = len(votos)
     for cargo in database.getCargosQtde():
         for voto in votos:
             string = ""
@@ -251,12 +252,11 @@ def gerarString(self, votos):
                 textobject.moveCursor(0,14)
                 votos.remove(voto)
         stringQRCode += ";"
-
-    textobject.moveCursor(0, 30)
+    textobject.moveCursor(0, 100 - moverLinhas*24)
     string = "_ _ _ _ _ _ Dobre Aqui _ _ _ _ _ _"
     textobject.textOut(string)
 
-    id_voto = b64encode(os.urandom(128))
+    id_voto = b64encode(os.urandom(16))
     stringQRCode += str(id_voto)
     signature, message = assinatura.sign(stringQRCode, open(PRIVATE_KEY, "rb"))
     sigAndMessage = signature + ":" + message
