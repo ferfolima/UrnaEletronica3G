@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import gtk
+import os
+import pyaudio
+import sys
+import wave
+from os import path
 
 from PySide.QtCore import *
 from PySide.QtGui import *
 
-import pyaudio
-import wave
-import os
-import sys
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from DB import eleicoesDB
+from ..DB import eleicoesDB
 
 script_dir = os.path.dirname(__file__)
 BEEP = os.path.join(script_dir, "../files/beep_urna.wav")

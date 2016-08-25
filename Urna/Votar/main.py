@@ -3,22 +3,24 @@
 import gtk
 import os
 import pyaudio
+import pynotify
+import subprocess
 import sys
 import wave
+from base64 import b64encode
 from reportlab.lib.units import cm
 from reportlab.pdfgen import canvas
+
 import pyqrcode
 from PySide.QtCore import *
 from PySide.QtGui import *
-import subprocess
-from base64 import b64encode
-import pynotify
-import votar
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from DB import eleicoesDB
-from Assinatura import assinatura
 
+import votar
+
+from ..DB import eleicoesDB
+from ..Assinatura import assinatura
+
+database = eleicoesDB.DAO()
 script_dir = os.path.dirname(__file__)
 PRIVATE_KEY = os.path.join(script_dir, "../files/privatekey.pem")
 ICON = os.path.join(script_dir, "../files/icon.png")
@@ -287,5 +289,4 @@ def main():
 
 
 if __name__ == "__main__":
-    database = eleicoesDB.DAO()
     main()

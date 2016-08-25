@@ -3,14 +3,13 @@
 import os
 import pyaudio
 import subprocess
+import sys
 import wave
+from os import path
 from reportlab.lib.units import cm
 from reportlab.pdfgen import canvas
 
-import sys
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from DB import eleicoesDB
+from ..DB import eleicoesDB
 
 script_dir = os.path.dirname(__file__)
 BOLETIM_PDF = os.path.join(script_dir, "../files/boletim_de_urna.pdf")

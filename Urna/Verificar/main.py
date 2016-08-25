@@ -2,21 +2,21 @@
 # -*- coding: utf-8 -*-
 import gtk
 import os
+import sys
 import zbar
+from os import path
 from time import sleep
+
 from PySide.QtCore import *
 from PySide.QtGui import *
 
-import sys
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from DB import eleicoesDB
-from Assinatura import assinatura
+from ..DB import eleicoesDB
+from ..Assinatura import assinatura
 
 script_dir = os.path.dirname(__file__)
 PUBLIC_KEY = os.path.join(script_dir, "../files/publickey.pem")
 ICON = os.path.join(script_dir, "../files/icon.png")
-
+database = eleicoesDB.DAO()
 
 class mainWidget(QWidget):
     def __init__(self, ui, parent=None):
@@ -186,5 +186,4 @@ def main():
 
 
 if __name__ == "__main__":
-    database = eleicoesDB.DAO()
     main()

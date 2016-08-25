@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 import gtk
 import os
-import zbar
 import pyaudio
+import sys
 import wave
+import zbar
 from time import sleep
 
 from PySide.QtCore import *
@@ -12,10 +13,7 @@ from PySide.QtGui import *
 
 import incrementar
 
-import sys
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from Assinatura import assinatura
+from ..Assinatura import assinatura
 
 script_dir = os.path.dirname(__file__)
 BEEP = os.path.join(script_dir, "../files/beep_urna.wav")

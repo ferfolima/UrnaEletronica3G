@@ -2,16 +2,14 @@
 # -*- coding: utf-8 -*-
 import gtk
 import os
+import pynotify
+import sys
+from os import path
 
 from PySide.QtCore import *
 from PySide.QtGui import *
 
-import pynotify
-
-import sys
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from DB import eleicoesDB
+from ..DB import eleicoesDB
 
 script_dir = os.path.dirname(__file__)
 ICON = os.path.join(script_dir, "../files/icon.png")

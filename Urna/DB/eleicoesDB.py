@@ -1,15 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.exc import IntegrityError
-from sqlalchemy import func, and_
 import os
-import sys
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from DB.model import Partidos, Cargos, Candidatos, Base
+
+from sqlalchemy import create_engine
+from sqlalchemy import func, and_
+from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import sessionmaker
+
+from ..DB.model import Partidos, Cargos, Candidatos, Base
 
 script_dir = os.path.dirname(__file__)
 ELEICOESDB_FILE = os.path.join(script_dir, "../files/eleicoesdb.db")

@@ -2,20 +2,18 @@
 # -*- coding: utf-8 -*-
 import gtk
 import os
+import sys
 from time import sleep
 
 from PySide.QtCore import *
 from PySide.QtGui import *
+from . import cadastroCandidato
+from . import cadastroCargo
+from . import cadastroPartido
 
-import cadastroCandidato
-import cadastroCargo
-import cadastroPartido
+from ..DB import eleicoesDB
 
-import sys
-from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from DB import eleicoesDB
-
+database = eleicoesDB.DAO()
 script_dir = os.path.dirname(__file__)
 ICON = os.path.join(script_dir, "../files/icon.png")
 DB = os.path.join(script_dir, "../files/db.sql")
@@ -188,8 +186,3 @@ def main():
     mySW.show()
     mySW.raise_()
     sys.exit(app.exec_())
-
-
-if __name__ == "__main__":
-    database = eleicoesDB.DAO()
-    main()
